@@ -1,5 +1,4 @@
 var express = require('express')
-var ejs = require('ejs')
 var app = express();
 
 app.set('port', (process.env.PORT || 8080))
@@ -9,7 +8,7 @@ app.set('view engine', 'ejs')
 app.get('/', function (request, response) {
   var loggedIn = true
 
-  response.render('index', {loggedin: loggedIn})
+  response.render('index', {loggedIn: loggedIn})
 });
 
 app.use(express.static(__dirname + '/public'))
