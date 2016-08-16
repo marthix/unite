@@ -8,7 +8,7 @@ app.set('view engine', 'ejs')
 app.get('/', function (request, response) {
   var loggedIn = request.query.loggedin === 'yes'
 
-  response.render('index', {loggedIn: loggedIn})
+  response.render('template', {loggedIn: loggedIn})
 });
 
 app.use(express.static(__dirname + '/public'))
