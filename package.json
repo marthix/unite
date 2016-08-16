@@ -21,6 +21,8 @@
   "homepage": "https://github.com/marthix/unite#readme",
   "dependencies": {
     "ejs": "^2.5.1",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "knex": "^0.11.10",
+    "pg": "^6.1.0"
   }
 }
