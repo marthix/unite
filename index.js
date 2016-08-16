@@ -1,12 +1,17 @@
 var express = require('express')
+var ejs = require('ejs')
 var app = express();
 
 app.set('port', (process.env.PORT || 8080))
 app.set('views', __dirname + '/views')
-app.set('view engine', 'egs')
+app.set('view engine', 'ejs')
 
 app.get('/', function (request, response) {
-  response.send('Hello World!');
+  var loggedIn = true
+  
+  ejs.renderFile('index.ejs', {loggedIn: loggedIn}, {}, function(err, html){
+    response.send(html)
+  })
 });
 
 app.use(express.static(__dirname + '/public'))
