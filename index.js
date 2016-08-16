@@ -8,10 +8,8 @@ app.set('view engine', 'ejs')
 
 app.get('/', function (request, response) {
   var loggedIn = true
-  
-  ejs.renderFile('index.ejs', {loggedIn: loggedIn}, {}, function(err, html){
-    response.send(html)
-  })
+
+  response.render('index', {loggedin: loggedIn})
 });
 
 app.use(express.static(__dirname + '/public'))
