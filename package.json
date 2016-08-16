@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/marthix/unite#readme",
   "dependencies": {
+    "ejs": "^2.5.1",
     "express": "^4.14.0"
   }
 }

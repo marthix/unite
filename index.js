@@ -1,8 +1,13 @@
 var express = require('express')
 var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.set('port', (process.env.PORT || 8080))
+app.set('views', __dirname + '/views')
+app.set('view engine', 'egs')
+app.use(express.static(__dirname + '/public'))
+
+app.get('/', function (request, response) {
+  response.send('Hello World!');
 });
 
 app.listen(8080, function () {
