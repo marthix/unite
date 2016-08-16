@@ -10,6 +10,6 @@ app.get('/', function (request, response) {
   response.send('Hello World!');
 });
 
-app.listen(8080, function () {
-  console.log('Example app listening on port 80!');
+app.listen(app.get('port'), function () {
+  console.log('Example app listening on port', app.get('port'));
 });
