@@ -1,0 +1,19 @@
+{
+  "name": "unite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marthix/unite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marthix/unite/issues"
+  },
+  "homepage": "https://github.com/marthix/unite#readme"
+}
