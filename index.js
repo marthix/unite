@@ -6,7 +6,7 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 
 app.get('/', function (request, response) {
-  var loggedIn = true
+  var loggedIn = request.query.loggedin === 'yes'
 
   response.render('index', {loggedIn: loggedIn})
 });
