@@ -3,7 +3,7 @@ var app = express()
 
 var knex = require('knex')({
   client: 'pg',
-  connection: 'postgres://localhost/jason',
+  connection: (process.env.PG_CONNECTION_STRING || 'postgres://localhost/jason'),
   searchPath: 'knex,public'
 })
 
