@@ -61,6 +61,15 @@ app.get('/api/v1/roles', function(req, res){
     })
 })
 
+app.get('/api/v1/friends', function(req, res){
+  knex
+    .select()
+    .from('friends')
+    .then(function(data){
+      res.json(data)
+    })
+})
+
 app.get('/api/v1/user_team', function(req, res){
   knex
     .select()
@@ -70,10 +79,10 @@ app.get('/api/v1/user_team', function(req, res){
     })
 })
 
-app.get('/api/v1/friends', function(req, res){
+app.get('/api/v1/user_game', function(req, res){
   knex
     .select()
-    .from('friends')
+    .from('user_game')
     .then(function(data){
       res.json(data)
     })
