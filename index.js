@@ -3,7 +3,7 @@ var app = express()
 
 var knex = require('knex')({
   client: 'pg',
-  connection: (process.env.PG_CONNECTION_STRING || 'postgres://localhost/jason'),
+  connection: (process.env.DATABASE_URL || 'postgres://localhost/jason'),
   searchPath: 'knex,public'
 })
 
@@ -12,7 +12,7 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
-  res.send('Hello World!asdf');
+  res.send('Hello World! You made it.');
 })
 
 // ROUTES
