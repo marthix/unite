@@ -45,7 +45,7 @@ app.get('/install', function(request, response){
   knex.schema.createTable('games', function (table) {
     table.increments('id')
     table.string('title')
-    table.string('title')
+    table.string('cover')
   })
     .then(function(){
       console.log('Created games table')
