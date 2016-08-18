@@ -1,5 +1,10 @@
 <%- include('header') %>
 
-<button id="discord-login">Click Here To Login With Discord</button>
-test
+  <% if (!loggedIn) { %>
+    <a href="/login"><button id="discord-login">Login With Discord</button></a>
+  <% } else { %>
+    <h1>Welcome <%= user.username %></h1>
+    <img src="https://discordapp.com/api/users/<%= user.discord_id %>/avatars/<%= user.avatar %>.jpg" />
+  <% } %>
+
 <%- include('footer') %>
