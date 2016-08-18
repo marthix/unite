@@ -12,7 +12,7 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
-  res.send('Hello World! You made it.');
+  res.render('index');
 })
 
 // ROUTES
