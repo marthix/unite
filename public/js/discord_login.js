@@ -1,5 +1,6 @@
 document.body.addEventListener('click', function(e){
-  if(e.target.id === 'discord-login') {
-    
+  console.log('click')
+  if(e.target.id === 'discord-login'){
+    console.log(window.location)
   }
 })
