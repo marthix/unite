@@ -1,0 +1,103 @@
+@import 'https://fonts.googleapis.com/css?family=Audiowide|Roboto:300,300i,700,700i';
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #212825;
+}
+
+.header {
+  background-color: #ffffff;
+  color: #2c2f33;
+  height: 12vh;
+}
+
+.logo {
+  margin: 20px;
+  display: none;
+}
+
+.logo1 {
+  margin: 20px;
+  display: inline-block;
+}
+
+.login {
+  margin-top: 23px;
+}
+
+.logo-jumbo {
+  width: 75%;
+  min-width: 200px;
+  max-width: 600px;
+  margin: 150px auto 50px;
+  display: block;
+}
+
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(../assets/video/moba.png) no-repeat;
+  background-size: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 88vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.jumbo-copy {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  text-shadow: 1px 1px 1px #000;
+  color: #ffffff;
+  text-align: center;
+}
+
+.learn {
+  color: white;
+  display: inline-block;
+  margin-top: 110px;
+  margin-bottom: 0;
+}
+
+.learn:hover {
+  color: #63d297;
+}
+
+@media screen and (min-width: 40rem) {
+  .logo {
+    margin: 20px;
+    display: inline-block;
+  }
+  .logo1 {
+    margin: 20px;
+    display: none;
+  }
+}
+
+@media screen and (max-device-width: 800px) {
+  html {
+    background: url(../assets/video/moba.png) #000 no-repeat center center fixed;
+    background-size: cover;
+  }
+  #bgvid {
+    display: none;
+  }
+}
