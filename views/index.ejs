@@ -9,28 +9,28 @@
           <div class="column">
             <a href="#"><img class="logo" src="assets/logos/unite-logo-black.png" height="40px"/></a>
             <a href="#"><img class="logo1" src="assets/logos/unite-logo-black-small.png" height="40px"/></a>
-            <a class="button button-outline float-right login" href="#">LOG IN</a>
+            <a class="button button-outline float-right login" href="/login">LOG IN</a>
           </div>
         </section>
       </nav>
     </header>
+    <main>
+      <div class="video-overlay"></div>
+      <video playsinline autoplay muted loop poster="assets/video/moba.png" id="bgvid">
+        <source src="assets/video/moba.webm" type="video/webm">
+        <source src="assets/video/moba.mp4" type="video/mp4">
+      </video>
+      <div class="jumbo-copy">
+        <img class="logo-jumbo" src="assets/logos/unite-logo-white.png"/>
+        <h3>Party up before you play.</h3>
+        <a href="#" class="learn">
+          <h6>LEARN MORE <img src="assets/images/arrow.svg" alt="Explore Features"> </h6>
+        </a>
+      </div>
+    </main>
   <% } else { %>
     <h1>Welcome <%= user.username %></h1>
     <img src="https://discordapp.com/api/users/<%= user.discord_id %>/avatars/<%= user.avatar %>.jpg" />
   <% } %>
-  <main>
-    <div class="video-overlay"></div>
-    <video playsinline autoplay muted loop poster="assets/video/moba.png" id="bgvid">
-      <source src="assets/video/moba.webm" type="video/webm">
-      <source src="assets/video/moba.mp4" type="video/mp4">
-    </video>
-    <div class="jumbo-copy">
-      <img class="logo-jumbo" src="assets/logos/unite-logo-white.png"/>
-      <h3>Party up before you play.</h3>
-      <a href="#" class="learn">
-        <h6>LEARN MORE <img src="assets/images/arrow.svg" alt="Explore Features"> </h6>
-      </a>
-    </div>
-  </main>
 
 <%- include('footer') %>
