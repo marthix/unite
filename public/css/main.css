@@ -190,6 +190,13 @@ video#bgvid {
   color: #ffffff;
   border-bottom: 1px solid transparent;
   transition: 0.3s ease all;
+  margin-bottom: 5px;
+}
+
+.tile-teams {
+  color: #b4c4bc;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 40rem) {
