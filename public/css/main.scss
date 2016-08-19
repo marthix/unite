@@ -16,11 +16,15 @@ $fontHeader:   'Audiowide', cursive;
 }
 
 body {
-  background-color: $black;
+  background-color: $darkGray;
 }
 
 nav {
   background-color: $white;
+}
+
+a {
+  transition: 0.3s ease all;
 }
 
 .header {
@@ -37,6 +41,11 @@ nav {
 .logo1 {
   margin: 20px;
   display: inline-block;
+}
+
+.selected {
+  color: $darkGray;
+  border-bottom: 3px solid $mint !important;
 }
 
 .nav {
@@ -81,6 +90,7 @@ nav {
 .avatar {
   display: inline-block;
   border-radius: 15px;
+  border: 2px solid $gray;
   margin-left: 5px;
   margin-bottom: -7px;
 }
@@ -152,6 +162,17 @@ video#bgvid {
 
   &:hover {
     color: $mint;
+  }
+}
+
+.login-message {
+  color: $white;
+  text-align: center;
+  max-width: 400px;
+  margin: 100px auto;
+
+  a:hover {
+    color: $white;
   }
 }
 
