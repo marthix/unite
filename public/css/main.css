@@ -144,14 +144,52 @@ video#bgvid {
 }
 
 .login-message {
+  position: absolute;
+  z-index: 2;
   color: #ffffff;
   text-align: center;
-  max-width: 400px;
+  width: 100%;
   margin: 100px auto;
+}
+
+.login-message a {
+  padding-bottom: 2px;
+  border-bottom: 2px solid #63d297;
 }
 
 .login-message a:hover {
   color: #ffffff;
+}
+
+#games {
+  margin-top: 20px;
+}
+
+.game-tile {
+  cursor: pointer;
+}
+
+.game-tile:hover .tile-title {
+  color: #63d297;
+  border-bottom: 1px solid #63d297;
+}
+
+.game-tile:hover .tile-img {
+  border: 2px solid #63d297;
+}
+
+.tile-img {
+  width: 100%;
+  border: 2px solid #b4c4bc;
+  transition: 0.3s ease all;
+}
+
+.tile-title {
+  display: inline-block;
+  font-size: 2rem;
+  color: #ffffff;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s ease all;
 }
 
 @media screen and (min-width: 40rem) {

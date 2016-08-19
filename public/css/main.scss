@@ -166,14 +166,59 @@ video#bgvid {
 }
 
 .login-message {
+  position: absolute;
+  z-index: 2;
   color: $white;
   text-align: center;
-  max-width: 400px;
+  width: 100%;
   margin: 100px auto;
 
-  a:hover {
-    color: $white;
+  a {
+    padding-bottom: 2px;
+    border-bottom: 2px solid $mint;
+
+    &:hover {
+      color: $white;
+    }
   }
+}
+
+#games {
+  margin-top: 20px;
+}
+
+.game-tile {
+  cursor: pointer;
+
+  &:hover {
+    .tile-title {
+      color: $mint;
+      border-bottom: 1px solid $mint;
+    }
+
+    .tile-img {
+      border: 2px solid $mint;
+    }
+  }
+}
+
+.tile-img {
+  width: 100%;
+  border: 2px solid $gray;
+  transition: 0.3s ease all;
+
+}
+
+.tile-title {
+  display: inline-block;
+  font-size: 2rem;
+  color: $white;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s ease all;
+
+  // &:hover {
+  //   color: $mint;
+  // }
 }
 
 // MEDIA QUERIES
