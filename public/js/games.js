@@ -17,6 +17,11 @@ fetch('/api/v1/games')
       title.innerHTML = result.title
       title.classList.add('tile-title')
 
+      //Create the title element, and add a specific class
+      var teams = document.createElement('p')
+      teams.innerHTML = 'Teams Playing: 100'
+      teams.classList.add('tile-teams')
+
       //Create the div to house all the elements
       var tile = document.createElement('a')
       tile.classList.add('game-tile', 'column', 'column-20')
@@ -24,6 +29,7 @@ fetch('/api/v1/games')
       //Add all the above elements to the final div container
       tile.appendChild(img)
       tile.appendChild(title)
+      tile.appendChild(teams)
 
       //Append the div to the master tile grid
       document.getElementById('games').appendChild(tile)

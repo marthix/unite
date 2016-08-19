@@ -301,6 +301,7 @@ input[type='radio'] {
   flex-direction: column;
   padding: 0;
   width: 100%;
+  flex-wrap: wrap;
 }
 .row .row-wrap {
   flex-wrap: wrap;
