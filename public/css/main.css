@@ -7,10 +7,14 @@ body {
   background-color: #212825;
 }
 
+nav {
+  background-color: #ffffff;
+}
+
 .header {
   background-color: #ffffff;
   color: #2c2f33;
-  height: 12vh;
+  height: 13vh;
 }
 
 .logo {
@@ -21,6 +25,49 @@ body {
 .logo1 {
   margin: 20px;
   display: inline-block;
+}
+
+.nav {
+  display: inline-block;
+  text-align: right;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 10px;
+  margin: 20px;
+  font-weight: 700;
+  border-bottom: 3px solid #ffffff;
+  transition: 0.3s ease all;
+}
+
+.nav a:hover, .nav a:active, .nav a:focus {
+  color: #2c2f33;
+  border-bottom: 3px solid #63d297;
+}
+
+.nav span {
+  font-size: 2.5rem;
+}
+
+.profile {
+  margin-left: 25px;
+  display: inline-block;
+  border-bottom: 3px solid #ffffff;
+}
+
+.username {
+  display: inline-block;
+  font-weight: bold;
+  color: #2c2f33;
+  margin: 0;
+}
+
+.avatar {
+  display: inline-block;
+  border-radius: 15px;
+  margin-left: 5px;
+  margin-bottom: -7px;
 }
 
 .login {
@@ -57,8 +104,9 @@ video#bgvid {
 .video-overlay {
   position: absolute;
   left: 0;
+  top: 135px;
   width: 100%;
-  height: 88vh;
+  height: 80vh;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 2;
 }
@@ -93,6 +141,10 @@ video#bgvid {
   .logo1 {
     margin: 20px;
     display: none;
+  }
+  .video-overlay {
+    height: 87vh;
+    top: 93px;
   }
 }
 
