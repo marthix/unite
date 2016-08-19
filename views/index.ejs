@@ -1,14 +1,11 @@
 <%- include('header') %>
-
-
-
   <% if (!loggedIn) { %>
     <header class="header container-fluid">
       <nav class="container">
         <section class="row">
           <div class="column">
-            <a href="#"><img class="logo" src="assets/logos/unite-logo-black.png" height="40px"/></a>
-            <a href="#"><img class="logo1" src="assets/logos/unite-logo-black-small.png" height="40px"/></a>
+            <a href="/"><img class="logo" src="assets/logos/unite-logo-black.png" height="40px"/></a>
+            <a href="/"><img class="logo1" src="assets/logos/unite-logo-black-small.png" height="40px"/></a>
             <a class="button button-outline float-right login" href="/login">LOG IN</a>
           </div>
         </section>
@@ -38,18 +35,22 @@
           </div>
           <div class="column nav">
             <div class="nav">
-              <a class="" href="#" data-hover="Join">JOIN</a>
-              <a class="" href="#" data-hover="Create">CREATE</a>
+              <a class="" href="/join">JOIN</a>
+              <a class="" href="/create">CREATE</a>
             </div>
             <span class="">|</span>
             <div class="profile">
-              <h6 class="username"><%= user.username %></h6>
+              <h6 class="username"><%= user.username_full %></h6>
               <img class="avatar" src="https://discordapp.com/api/users/<%= user.discord_id %>/avatars/<%= user.avatar %>.jpg" height="30px"/>
             </div>
           </div>
         </section>
       </nav>
     </header>
+    <main class="login-message">
+      <h1>Hello, <%= user.username %>!</h1>
+      <h5>If you're ready to party up, <a href="/join">join</a> a team or <a href="/create">create</a> your own.</h5>
+    </main>
   <% } %>
 
 <%- include('footer') %>
