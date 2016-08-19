@@ -47,9 +47,16 @@
         </section>
       </nav>
     </header>
-    <main class="login-message">
-      <h1>Hello, <%= user.username %>!</h1>
-      <h5>If you're ready to party up, <a href="/join">join</a> a team or <a href="/create">create</a> your own.</h5>
+    <main>
+      <div class="video-overlay"></div>
+      <video playsinline autoplay muted loop poster="assets/video/moba.png" id="bgvid">
+        <source src="assets/video/moba.webm" type="video/webm">
+        <source src="assets/video/moba.mp4" type="video/mp4">
+      </video>
+      <div class="login-message">
+        <h1>Hello, <%= user.username %>!</h1>
+        <h5>If you're ready to party up, <a href="/join">join</a> a team or <a href="/create">create</a> your own.</h5>
+      </div>
     </main>
   <% } %>
 
