@@ -5,6 +5,7 @@
 
 body {
   background-color: #2c2f33;
+  color: #ffffff;
 }
 
 nav {
@@ -19,6 +20,7 @@ a {
   background-color: #ffffff;
   color: #2c2f33;
   height: 13vh;
+  min-height: 88px;
 }
 
 .logo {
@@ -82,6 +84,13 @@ a {
 
 .login {
   margin-top: 23px;
+  display: flex;
+  padding: 0 0.7rem;
+}
+
+.discord-logo {
+  margin-top: 3px;
+  margin-right: 8px;
 }
 
 .logo-jumbo {
@@ -125,7 +134,6 @@ video#bgvid {
   position: absolute;
   width: 100%;
   z-index: 2;
-  color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
 }
@@ -144,11 +152,10 @@ video#bgvid {
 }
 
 .login-message {
-  position: absolute;
+  position: relative;
   z-index: 2;
-  color: #ffffff;
   text-align: center;
-  width: 100%;
+  width: 50%;
   margin: 100px auto;
 }
 
@@ -165,6 +172,14 @@ video#bgvid {
   margin-top: 20px;
 }
 
+.game-header {
+  margin-top: 15px;
+}
+
+#game-title {
+  color: #63d297;
+}
+
 .game-tile {
   cursor: pointer;
 }
@@ -176,12 +191,14 @@ video#bgvid {
 
 .game-tile:hover .tile-img {
   border: 2px solid #63d297;
+  transform: scale(1.03);
 }
 
 .tile-img {
   width: 100%;
   border: 2px solid #b4c4bc;
   transition: 0.3s ease all;
+  box-shadow: 0 8px 6px -6px #212825;
 }
 
 .tile-title {
@@ -197,6 +214,111 @@ video#bgvid {
   color: #b4c4bc;
   font-size: 1.2rem;
   margin-bottom: 20px;
+}
+
+.create-team-box {
+  background-color: #212825;
+  border: 2px solid #b4c4bc;
+  border-radius: 20px;
+  height: 200px;
+  text-align: center;
+  transition: 0.3s ease all;
+}
+
+.create-team-box:hover {
+  border: 2px solid #63d297;
+}
+
+.create-team-box:hover .plus-icon-path {
+  fill: #63d297;
+}
+
+.create-team {
+  color: #b4c4bc;
+  transition: 0.3s ease all;
+}
+
+.create-team:hover {
+  color: #ffffff;
+}
+
+.plus-icon {
+  width: 100%;
+  max-width: 64px;
+  height: 100%;
+  max-height: 64px;
+  margin: 10px;
+}
+
+.plus-icon-path {
+  fill: #b4c4bc;
+  transition: 0.3s ease all;
+}
+
+.team-tile {
+  background-color: #212825;
+  color: #b4c4bc;
+  border: 2px solid #b4c4bc;
+  border-radius: 20px;
+  height: 200px;
+  text-align: center;
+  padding: 20px;
+}
+
+#team-size {
+  font-weight: bold;
+}
+
+.team-avatar {
+  width: 100%;
+  border: 1px solid #b4c4bc;
+  border-radius: 5px;
+}
+
+.info-icon {
+  width: 100%;
+  max-width: 32px;
+  height: 100%;
+  max-height: 32px;
+}
+
+.info-icon-path {
+  fill: #b4c4bc;
+  transition: 0.3s ease all;
+}
+
+#game-mode {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.join {
+  display: flex;
+  padding: 0 2rem;
+  transition: 0.3s ease all;
+}
+
+.join:hover {
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.join:hover .door-icon-path {
+  fill: #ffffff;
+}
+
+.door-icon {
+  width: 100%;
+  max-width: 24px;
+  height: 100%;
+  max-height: 24px;
+  margin-top: 5px;
+  margin-right: 8px;
+}
+
+.door-icon-path {
+  fill: #63d297;
+  transition: 0.3s ease all;
 }
 
 @media screen and (min-width: 40rem) {

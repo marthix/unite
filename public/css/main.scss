@@ -17,6 +17,7 @@ $fontHeader:   'Audiowide', cursive;
 
 body {
   background-color: $darkGray;
+  color: $white;
 }
 
 nav {
@@ -31,6 +32,7 @@ a {
   background-color: $white;
   color: $darkGray;
   height: 13vh;
+  min-height: 88px;
 }
 
 .logo {
@@ -54,7 +56,6 @@ a {
 
   a {
     display: inline-block;
-    // margin-top: 20px;
     padding: 10px;
     margin: 20px;
     font-weight: 700;
@@ -97,6 +98,13 @@ a {
 
 .login {
   margin-top: 23px;
+  display: flex;
+  padding: 0 0.7rem;
+}
+
+.discord-logo {
+  margin-top: 3px;
+  margin-right: 8px;
 }
 
 .logo-jumbo {
@@ -140,7 +148,6 @@ video#bgvid {
   position: absolute;
   width: 100%;
   z-index: 2;
-  color: $white;
   text-align: center;
   text-shadow: 0 1px 0 #ccc,
                0 2px 0 #c9c9c9,
@@ -166,11 +173,10 @@ video#bgvid {
 }
 
 .login-message {
-  position: absolute;
+  position: relative;
   z-index: 2;
-  color: $white;
   text-align: center;
-  width: 100%;
+  width: 50%;
   margin: 100px auto;
 
   a {
@@ -187,6 +193,14 @@ video#bgvid {
   margin-top: 20px;
 }
 
+.game-header {
+  margin-top: 15px;
+}
+
+#game-title {
+  color: $mint;
+}
+
 .game-tile {
   cursor: pointer;
 
@@ -198,6 +212,7 @@ video#bgvid {
 
     .tile-img {
       border: 2px solid $mint;
+      transform: scale(1.03);
     }
   }
 }
@@ -206,7 +221,7 @@ video#bgvid {
   width: 100%;
   border: 2px solid $gray;
   transition: 0.3s ease all;
-
+  box-shadow: 0 8px 6px -6px $black;
 }
 
 .tile-title {
@@ -222,6 +237,115 @@ video#bgvid {
   color: $gray;
   font-size: 1.2rem;
   margin-bottom: 20px;
+}
+
+.create-team-box {
+  background-color: $black;
+  border: 2px solid $gray;
+  border-radius: 20px;
+  height: 200px;
+  text-align: center;
+  transition: 0.3s ease all;
+
+  &:hover {
+    border: 2px solid $mint;
+
+    .plus-icon-path {
+      fill: $mint;
+    }
+  }
+}
+
+.create-team {
+  color: $gray;
+  transition: 0.3s ease all;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.plus-icon {
+  width: 100%;
+  max-width: 64px;
+  height: 100%;
+  max-height: 64px;
+  margin: 10px;
+}
+
+.plus-icon-path {
+  fill: $gray;
+  transition: 0.3s ease all;
+}
+
+.team-tile {
+  background-color: $black;
+  color: $gray;
+  border: 2px solid $gray;
+  border-radius: 20px;
+  height: 200px;
+  text-align: center;
+  padding: 20px;
+}
+
+.team-players {
+
+}
+
+#team-size {
+  font-weight: bold;
+}
+
+.team-avatar {
+  width: 100%;
+  border: 1px solid $gray;
+  border-radius: 5px;
+}
+
+.info-icon {
+  width: 100%;
+  max-width: 32px;
+  height: 100%;
+  max-height: 32px;
+}
+
+.info-icon-path {
+  fill: $gray;
+  transition: 0.3s ease all;
+}
+
+#game-mode {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.join {
+  display: flex;
+  padding: 0 2rem;
+  transition: 0.3s ease all;
+
+  &:hover {
+    border: 1px solid $white !important;
+    color: $white !important;
+
+    .door-icon-path {
+      fill: $white;
+    }
+  }
+}
+
+.door-icon {
+  width: 100%;
+  max-width: 24px;
+  height: 100%;
+  max-height: 24px;
+  margin-top: 5px;
+  margin-right: 8px;
+}
+
+.door-icon-path {
+  fill: $mint;
+  transition: 0.3s ease all;
 }
 
 // MEDIA QUERIES
