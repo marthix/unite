@@ -222,7 +222,6 @@ video#bgvid {
   border-radius: 20px;
   height: 200px;
   text-align: center;
-  transition: 0.3s ease all;
 }
 
 .create-team-box:hover {
@@ -320,6 +319,19 @@ video#bgvid {
 .door-icon-path {
   fill: #63d297;
   transition: 0.3s ease all;
+}
+
+.create-modal {
+  color: #ffffff;
+}
+
+.jBox-title {
+  background-color: #ffffff !important;
+  color: #212825 !important;
+}
+
+.jBox-content {
+  background-color: #212825 !important;
 }
 
 .popover-team-avatar {
