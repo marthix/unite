@@ -245,7 +245,6 @@ video#bgvid {
   border-radius: 20px;
   height: 200px;
   text-align: center;
-  transition: 0.3s ease all;
 
   &:hover {
     border: 2px solid $mint;
@@ -349,7 +348,22 @@ video#bgvid {
   transition: 0.3s ease all;
 }
 
-// Popover
+// MODALS
+
+.create-modal {
+  color: $white;
+}
+
+.jBox-title {
+  background-color: $white !important;
+  color: $black !important;
+}
+
+.jBox-content {
+  background-color: $black !important;
+}
+
+// POPOVERS
 .popover-team-avatar {
   position: relative;
 
