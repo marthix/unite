@@ -25,7 +25,7 @@
     <main class="container">
       <h3 class="game-header" id="game-title"></h3>
       <section class="row" id="teams">
-        <div class="column column-20">
+        <div class="column column-33">
           <a href="#" class="create-team">
             <div class="create-team-box">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490.2 490.2" class="plus-icon"><path class="plus-icon-path" d="M418.5 418.5c95.6-95.6 95.6-251.2 0-346.8s-251.2-95.6-346.8 0 -95.6 251.2 0 346.8S322.9 514.1 418.5 418.5zM89 89c86.1-86.1 226.1-86.1 312.2 0s86.1 226.1 0 312.2 -226.1 86.1-312.2 0S3 175.1 89 89z" class="a"/><path class="plus-icon-path" d="M245.1 336.9c3.4 0 6.4-1.4 8.7-3.6 2.2-2.2 3.6-5.3 3.6-8.7v-67.3h67.3c3.4 0 6.4-1.4 8.7-3.6 2.2-2.2 3.6-5.3 3.6-8.7 0-6.8-5.5-12.3-12.2-12.2h-67.3v-67.3c0-6.8-5.5-12.3-12.2-12.2 -6.8 0-12.3 5.5-12.2 12.2v67.3h-67.3c-6.8 0-12.3 5.5-12.2 12.2 0 6.8 5.5 12.3 12.2 12.2h67.3v67.3C232.8 331.4 238.3 336.9 245.1 336.9z" class="a"/></svg>
@@ -34,59 +34,6 @@
             </div>
           </a>
         </div>
-        <div class="column column-33">
-          <div class="team-tile">
-            <div class="row">
-              <div class="column column-80">
-                <div class="row team-players">
-                  <div class="column column-20">
-                    <img src="assets/images/avatar.jpg" class="team-avatar" />
-                  </div>
-                  <div class="column column-20">
-                    <img src="assets/images/avatar.jpg" class="team-avatar" />
-                  </div>
-                  <div class="column column-20">
-                    <img src="assets/images/avatar.jpg" class="team-avatar" />
-                  </div>
-                  <div class="column column-20">
-                    <img src="assets/images/avatar.jpg" class="team-avatar" />
-                  </div>
-                  <div class="column column-20">
-                    <img src="assets/images/avatar.jpg" class="team-avatar" />
-                  </div>
-                </div>
-              </div>
-              <div class="column column-20">
-                <h5 id="team-size">3/5</h5>
-              </div>
-            </div>
-            <label for="seriousness">Casual to Competitive</label>
-            <input type="range" min="1" max="5" value="3" id="seriousness"
-            	step="1" list="settings" disabled>
-              <datalist id="settings">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </datalist>
-            <div class="row">
-              <div class="column column-20">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 475 475" class="info-icon"><path d="M238 0C107 0 0 107 0 238s107 237 238 237 237-106 237-237S369 0 238 0zM238 432c-107 0-194-87-194-194S131 44 238 44s194 87 194 194S345 432 238 432z" class="info-icon-path"/><path d="M270 323l-20 9 26-133c3-14-12-29-28-20l-49 27c-9 5-12 17-7 26s17 12 26 7l12-6 -25 127c-2 11 7 23 19 23 3 0 6-1 8-2l53-23c10-4 14-15 10-25S280 319 270 323z" class="info-icon-path"/><path d="M257 143c15 0 27-12 27-27s-12-27-27-27 -27 12-27 27S242 143 257 143z" class="info-icon-path"/></svg>
-              </div>
-              <div class="column column-40">
-                <h5 id="game-mode">Conquest</h5>
-              </div>
-              <div class="column column-40">
-                <a class="button button-outline join">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53 53" class="door-icon"><rect x="27" y="29" width="3" height="2" class="door-icon-path"/><path d="M45 51V1c0-0.1 0-0.2-0.1-0.4 0 0 0 0 0-0.1 0-0.1-0.1-0.2-0.2-0.3 0 0 0 0 0 0 0 0-0.1-0.1-0.1-0.1 -0.1 0-0.1-0.1-0.2-0.1 0 0 0 0 0 0 -0.1 0-0.2-0.1-0.3-0.1C44 0 44 0 44 0H10C9.4 0 9 0.4 9 1v50H4v2h6 34 5v-2H45zM25 47.2V8.2l18-5.8V50.8L25 47.2zM11 2h26.7L23.7 6.5C23.3 6.7 23 7.1 23 7.5V48c0 0.5 0.3 0.9 0.8 1L33.9 51H11V2z" class="door-icon-path"/></svg>
-                  JOIN
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </section>
     </main>
   <% } %>
