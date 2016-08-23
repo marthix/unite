@@ -5,7 +5,6 @@ fetch('/api/v1/games' + window.location.search)
 
   //Take the JSON object, and begin creating HTML elements
   .then(function(json) {
-
     var title = document.getElementById('game-title')
     title.innerHTML = json.title
 
