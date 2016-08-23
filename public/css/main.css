@@ -263,9 +263,10 @@ video#bgvid {
   height: 200px;
   text-align: center;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
-#team-size {
+.team-size {
   font-weight: bold;
 }
 
@@ -283,11 +284,11 @@ video#bgvid {
 }
 
 .info-icon-path {
-  fill: #b4c4bc;
+  fill: #b4c4bc !important;
   transition: 0.3s ease all;
 }
 
-#game-mode {
+.game-mode {
   font-weight: bold;
   font-size: 2rem;
 }
@@ -319,6 +320,138 @@ video#bgvid {
 .door-icon-path {
   fill: #63d297;
   transition: 0.3s ease all;
+}
+
+.popover-team-avatar {
+  position: relative;
+}
+
+.popover-team-avatar .popover {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid #63d297;
+  border-radius: 5px;
+  bottom: 43px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: none;
+  font-size: 12px;
+  left: -55px;
+  padding: 7px 10px;
+  position: absolute;
+  width: 160px;
+  z-index: 4;
+}
+
+.popover-team-avatar .popover:before {
+  border-top: 7px solid rgba(99, 210, 151, 0.85);
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  bottom: -7px;
+  content: '';
+  display: block;
+  left: 50%;
+  margin-left: -7px;
+  position: absolute;
+}
+
+.popover-team-avatar:hover .popover {
+  display: block;
+  -webkit-animation: fade-in .3s linear 1, move-up .3s linear 1;
+  -moz-animation: fade-in .3s linear 1, move-up .3s linear 1;
+  -ms-animation: fade-in .3s linear 1, move-up .3s linear 1;
+}
+
+.popover-team-description {
+  position: relative;
+}
+
+.popover-team-description .popover {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid #63d297;
+  border-radius: 5px;
+  bottom: 43px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: none;
+  font-size: 12px;
+  left: -95px;
+  padding: 7px 10px;
+  position: absolute;
+  width: 240px;
+  z-index: 4;
+}
+
+.popover-team-description .popover:before {
+  border-top: 7px solid rgba(99, 210, 151, 0.85);
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  bottom: -7px;
+  content: '';
+  display: block;
+  left: 50%;
+  margin-left: -7px;
+  position: absolute;
+}
+
+.popover-team-description:hover .popover {
+  display: block;
+  -webkit-animation: fade-in .3s linear 1, move-up .3s linear 1;
+  -moz-animation: fade-in .3s linear 1, move-up .3s linear 1;
+  -ms-animation: fade-in .3s linear 1, move-up .3s linear 1;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes move-up {
+  from {
+    bottom: 30px;
+  }
+  to {
+    bottom: 42px;
+  }
+}
+
+@-moz-keyframes move-up {
+  from {
+    bottom: 30px;
+  }
+  to {
+    bottom: 42px;
+  }
+}
+
+@-ms-keyframes move-up {
+  from {
+    bottom: 30px;
+  }
+  to {
+    bottom: 42px;
+  }
 }
 
 @media screen and (min-width: 40rem) {
