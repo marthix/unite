@@ -266,7 +266,7 @@ textarea {
 
 label,
 legend {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
   display: block;
   margin-bottom: 0.5rem;
@@ -478,6 +478,7 @@ textarea,
 select,
 fieldset {
   margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 pre,
