@@ -11,7 +11,7 @@
 	var KNOB_WIDTH=32;
 	var KNOB_MARGIN=28;
 	var LEVEL_MARGIN=KNOB_MARGIN+10;
-	var LABEL_WIDTH=44;
+	var LABEL_WIDTH=100;
 	var LEVEL_WIDTH=22;
 
 	function RadiosToSlider(element, options){

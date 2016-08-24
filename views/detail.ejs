@@ -36,7 +36,7 @@
           </a>
         </div>
       </section>
-      <div style="display: block; width: 47vw;" id="grabMe">
+      <div style="visibility: hidden; height: 1px; overflow: hidden;" id="grabMe">
 
       </div>
 
@@ -45,5 +45,48 @@
   <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
   <script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
   <script type="text/javascript" src="js/jquery.radios-to-slider.js"></script>
+  <script src="js/clipboard.js"></script>
   <script src="js/details.js"></script>
 <%- include('footer') %>
+
+
+
+
+
+<!-- <form method="POST" action="/api/v1/teams" id="team-form" class="modal-form container">
+  <fieldset>
+    <label for="gameMode">Choose your game mode:</label>
+    <select id="gameMode" name="mode_id">
+      <option value="4">Joust</option>
+      <option value="5">Siege</option>
+      <option value="1">Conquest</option>
+      <option value="2">Arena</option>
+      <option value="3">Assault</option>
+      <option value="6">Clash</option>
+    </select>
+    <label for="gameSeriousness">How serious is your team?</label>
+    <fieldset id="radios" class="radios-to-slider medium" style="width: 619px;">
+      <input id="option1" name="options" type="radio" value="1" class="seriousness-input" style="display: none;">
+      <label for="option1" class="slider-label" style="left: -34px;">Casual</label>
+      <input id="option2" name="options" type="radio" value="2" class="seriousness-input" style="display: none;">
+      <label for="option2" class="slider-label" style="left: 115.25px;">Semi-Casual</label>
+      <input id="option3" name="options" type="radio" value="3" class="seriousness-input" style="display: none;">
+      <label for="option3" class="slider-label" style="left: 264.5px;">Neutral</label>
+      <input id="option4" name="options" type="radio" value="4" class="seriousness-input" style="display: none;">
+      <label for="option4" class="slider-label slider-label-active" style="left: 413.75px;">Semi-Hardcore</label>
+      <input id="option5" name="options" type="radio" value="5" class="seriousness-input" style="display: none;">
+      <label for="option5" class="slider-label" style="left: 563px;">Hardcore</label>
+      <ins class="slider-level slider-lower-level" data-radio="option1" style="left: 5px;"></ins>
+      <ins class="slider-level slider-lower-level" data-radio="option2" style="left: 154.25px;"></ins>
+      <ins class="slider-level slider-lower-level" data-radio="option3" style="left: 303.5px; display: block;"></ins>
+      <ins class="slider-level" data-radio="option4" style="left: 452.75px; display: none;"></ins>
+      <ins class="slider-level" data-radio="option5" style="left: 602px;"></ins>
+      <ins class="slider-bar transition-enabled" style="display: block; width: 479.75px;"><span class="slider-knob"></span></ins>
+    </fieldset>
+    <label for="teamDescription">Enter a description for your team:</label>
+    <textarea id="teamDescription"></textarea>
+    <label for="access-checkbox" id="access-checkbox-label">This is a private team. Players must apply to join.</label>
+    <input type="checkbox" id="access-checkbox">
+    <button form="team-form" type="submit" class="button float-right">CREATE</button>
+  </fieldset>
+</form> -->

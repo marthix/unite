@@ -363,6 +363,16 @@ video#bgvid {
   background-color: $black !important;
 }
 
+#grabMe {
+  width: 47vw;
+}
+
+#access-checkbox-label {
+  display: inline;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
 // POPOVERS
 .popover-team-avatar {
   position: relative;
@@ -376,7 +386,7 @@ video#bgvid {
     color: #fff;
     display: none;
     font-size: 12px;
-    left: -55px;
+    left: -54px;
     padding: 7px 10px;
     position: absolute;
     width: 160px;
@@ -417,7 +427,7 @@ video#bgvid {
     color: #fff;
     display: none;
     font-size: 12px;
-    left: -95px;
+    left: -88px;
     padding: 7px 10px;
     position: absolute;
     width: 240px;

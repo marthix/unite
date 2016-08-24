@@ -150,7 +150,11 @@ fetch('/api/v1/games' + window.location.search)
 
   // Dynamically create modal
     var modalForm = document.createElement('form')
-    modalForm.classList.add('modal-form')
+    modalForm.setAttribute('method', 'POST')
+    modalForm.setAttribute('action', '/api/v1/teams')
+    modalForm.setAttribute('id', 'team-form')
+    modalForm.classList.add('modal-form', 'container')
+
     var modalFieldset = document.createElement('fieldset')
 
     var labelMode = document.createElement('label')
@@ -159,9 +163,11 @@ fetch('/api/v1/games' + window.location.search)
 
     var selectMode = document.createElement('select')
     selectMode.setAttribute('id', 'gameMode')
+    selectMode.setAttribute('name', 'mode_id')
 
     json.modes.forEach(function(mode){
       var optionMode = document.createElement('option')
+      // optionMode.setAttribute('name', 'mode_id')
       optionMode.setAttribute('value', mode.id)
       optionMode.innerHTML = mode.name
 
@@ -177,7 +183,7 @@ fetch('/api/v1/games' + window.location.search)
 
     var input1 = document.createElement('input')
     input1.setAttribute('id', 'option1')
-    input1.setAttribute('name', 'options')
+    input1.setAttribute('name', 'seriousness')
     input1.setAttribute('type', 'radio')
     input1.setAttribute('value', '1')
     input1.classList.add('seriousness-input')
@@ -188,7 +194,7 @@ fetch('/api/v1/games' + window.location.search)
 
     var input2 = document.createElement('input')
     input2.setAttribute('id', 'option2')
-    input2.setAttribute('name', 'options')
+    input2.setAttribute('name', 'seriousness')
     input2.setAttribute('type', 'radio')
     input2.setAttribute('value', '2')
     input2.classList.add('seriousness-input')
@@ -199,7 +205,7 @@ fetch('/api/v1/games' + window.location.search)
 
     var input3 = document.createElement('input')
     input3.setAttribute('id', 'option3')
-    input3.setAttribute('name', 'options')
+    input3.setAttribute('name', 'seriousness')
     input3.setAttribute('type', 'radio')
     input3.setAttribute('value', '3')
     input3.classList.add('seriousness-input')
@@ -211,7 +217,7 @@ fetch('/api/v1/games' + window.location.search)
 
     var input4 = document.createElement('input')
     input4.setAttribute('id', 'option4')
-    input4.setAttribute('name', 'options')
+    input4.setAttribute('name', 'seriousness')
     input4.setAttribute('type', 'radio')
     input4.setAttribute('value', '4')
     input4.classList.add('seriousness-input')
@@ -222,7 +228,7 @@ fetch('/api/v1/games' + window.location.search)
 
     var input5 = document.createElement('input')
     input5.setAttribute('id', 'option5')
-    input5.setAttribute('name', 'options')
+    input5.setAttribute('name', 'seriousness')
     input5.setAttribute('type', 'radio')
     input5.setAttribute('value', '5')
     input5.classList.add('seriousness-input')
@@ -246,9 +252,37 @@ fetch('/api/v1/games' + window.location.search)
     labelDescription.setAttribute('for', 'teamDescription')
     labelDescription.innerHTML = 'Enter a description for your team:'
 
-    var inputDescription = document.createElement('input')
+    var inputDescription = document.createElement('textarea')
     inputDescription.setAttribute('id', 'teamDescription')
-    inputDescription.setAttribute('type', 'text')
+    inputDescription.setAttribute('name', 'description')
+
+    var inputAccess = document.createElement('input')
+    inputAccess.setAttribute('type', 'checkbox')
+    inputAccess.setAttribute('name', 'access')
+    inputAccess.setAttribute('id', 'access-checkbox')
+    inputAccess.setAttribute('value', 'private')
+
+    var inputAccessHidden = document.createElement('input')
+    inputAccessHidden.setAttribute('type', 'hidden')
+    inputAccessHidden.setAttribute('name', 'access')
+    inputAccessHidden.setAttribute('id', 'access-checkbox-hidden')
+    inputAccessHidden.setAttribute('value', 'open')
+
+    var labelAccess = document.createElement('label')
+    labelAccess.setAttribute('for', 'access-checkbox')
+    labelAccess.setAttribute('id', 'access-checkbox-label')
+    labelAccess.innerHTML = 'This is a private team. Players must apply to join.'
+
+    var submitButton = document.createElement('button')
+    submitButton.setAttribute('form', 'team-form')
+    submitButton.setAttribute('type', 'submit')
+    submitButton.classList.add('button', 'float-right')
+    submitButton.innerHTML = 'CREATE'
+
+    var hiddenGameId = document.createElement('input')
+    hiddenGameId.setAttribute('type', 'hidden')
+    hiddenGameId.setAttribute('name', 'game_id')
+    hiddenGameId.setAttribute('value', json.id)
 
     modalFieldset.appendChild(labelMode)
     modalFieldset.appendChild(selectMode)
@@ -256,56 +290,36 @@ fetch('/api/v1/games' + window.location.search)
     modalFieldset.appendChild(radiosBox)
     modalFieldset.appendChild(labelDescription)
     modalFieldset.appendChild(inputDescription)
+    modalFieldset.appendChild(labelAccess)
+    modalFieldset.appendChild(inputAccess)
+    modalFieldset.appendChild(inputAccessHidden)
+    modalFieldset.appendChild(hiddenGameId)
+    modalFieldset.appendChild(submitButton)
 
     modalForm.appendChild(modalFieldset)
 
     document.getElementById('grabMe').appendChild(modalForm)
+
+    if (document.getElementById('access-checkbox').checked) {
+      console.log('checked')
+      document.getElementById('access-checkbox-hidden').disabled = true
+    }
+
+    var grabMe = $('#grabMe')
 
     new jBox('Modal', {
         width: '50vw',
         height: '70vh',
         attach: $('.create-team'),
         title: 'Create a team for ' + json.title,
-        content: $('#grabMe'),
-        addClass: 'create-modal'
+        content: grabMe,
+        addClass: 'create-modal',
+        onOpen: function() {
+          grabMe.css('visibility', 'visible').css('height', '').css('overflow', '')
+        }
     })
 
     $("#radios").radiosToSlider({
         animation: true
     })
   })
-
-
-
-{/* <div id="radios">
-    <input id="option1" name="options" type="radio">
-    <label for="option1">1 year</label>
-    <input id="option2" name="options" type="radio">
-    <label for="option2">2 years</label>
-    <input id="option3" name="options" type="radio" checked>
-    <label for="option3">3 years</label>
-    <input id="option4" name="options" type="radio">
-    <label for="option4">4 years</label>
-    <input id="option5" name="options" type="radio">
-    <label for="option5">5+ years</label>
-</div> */}
-  // <form>
-  //   <fieldset>
-  //     <label for="nameField">Name</label>
-  //     <input type="text" placeholder="CJ Patoilo" id="nameField">
-  //     <label for="ageRangeField">Age Range</label>
-  //     <select id="ageRangeField">
-  //       <option value="0-13">0-13</option>
-  //       <option value="14-17">14-17</option>
-  //       <option value="18-23">18-23</option>
-  //       <option value="24+">24+</option>
-  //     </select>
-  //     <label for="commentField">Comment</label>
-  //     <textarea placeholder="Hi CJ …" id="commentField"></textarea>
-  //     <div class="example-send-yourself-copy">
-  //       <input type="checkbox" id="confirmField">
-  //       <label class="label-inline" for="confirmField">Send a copy to yourself</label>
-  //     </div>
-  //     <input class="button-primary" type="submit" value="Send">
-  //   </fieldset>
-  // </form>
