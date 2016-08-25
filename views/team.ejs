@@ -1,0 +1,33 @@
+<%- include('header') %>
+  <% if (!loggedIn) { %>
+
+  <% } else { %>
+    <header class="header container-fluid">
+      <nav class="container">
+        <section class="row">
+          <div class="column column-20">
+            <a href="/"><img class="logo" src="assets/logos/unite-logo-black.png" height="40px"/></a>
+            <a href="/"><img class="logo1" src="assets/logos/unite-logo-black-small.png" height="40px"/></a>
+          </div>
+          <div class="column nav">
+            <div class="nav">
+              <a class="" href="/directory">DIRECTORY</a>
+            </div>
+            <span class="">|</span>
+            <div class="profile">
+              <h6 class="username"><%= user.username_full %></h6>
+              <img class="avatar" src="https://discordapp.com/api/users/<%= user.discord_id %>/avatars/<%= user.avatar %>.jpg" height="30px"/>
+            </div>
+          </div>
+        </section>
+      </nav>
+    </header>
+    <main class="container">
+      <h3 class="game-header">Welcome to your team.</h3>
+      <section class="row" id="games">
+
+      </section>
+    </main>
+  <% } %>
+  <script src=""></script>
+<%- include('footer') %>

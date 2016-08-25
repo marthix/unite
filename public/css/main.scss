@@ -16,7 +16,7 @@ $fontHeader:   'Audiowide', cursive;
 }
 
 body {
-  background-color: $darkGray;
+  background-color: $black;
   color: $white;
 }
 
@@ -240,7 +240,7 @@ video#bgvid {
 }
 
 .create-team-box {
-  background-color: $black;
+  background-color: $darkGray;
   border: 2px solid $gray;
   border-radius: 20px;
   height: 200px;
@@ -278,7 +278,7 @@ video#bgvid {
 }
 
 .team-tile {
-  background-color: $black;
+  background-color: $darkGray;
   color: $gray;
   border: 2px solid $gray;
   border-radius: 20px;
