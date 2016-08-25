@@ -8,147 +8,142 @@ fetch('/api/v1/games' + window.location.search)
     var title = document.getElementById('game-title')
     title.innerHTML = json.title
 
-    console.log(json)
-
     json.teams.forEach(function(team){
-      // Only show teams that are not full
-      if (team.users.length < team.mode.size) {
-        var boundingBox = document.createElement('div')
-        boundingBox.classList.add('column', 'column-33')
+      var boundingBox = document.createElement('div')
+      boundingBox.classList.add('column', 'column-33')
 
-        var teamTile = document.createElement('div')
-        teamTile.classList.add('team-tile')
+      var teamTile = document.createElement('div')
+      teamTile.classList.add('team-tile')
 
-        var teamRow = document.createElement('div')
-        teamRow.classList.add('row')
+      var teamRow = document.createElement('div')
+      teamRow.classList.add('row')
 
-        var teamPlayerBox = document.createElement('div')
-        teamPlayerBox.classList.add('column', 'column-80')
+      var teamPlayerBox = document.createElement('div')
+      teamPlayerBox.classList.add('column', 'column-80')
 
-        var teamPlayerRow = document.createElement('div')
-        teamPlayerRow.classList.add('row', 'team-players')
+      var teamPlayerRow = document.createElement('div')
+      teamPlayerRow.classList.add('row', 'team-players')
 
-        // LOOP THROUGH EACH PLAYER FOR AVATARS
-        team.users.forEach(function(user){
-          var avatarBox = document.createElement('div')
-          avatarBox.classList.add('column', 'column-20', 'popover-team-avatar')
+      // LOOP THROUGH EACH PLAYER FOR AVATARS
+      team.users.forEach(function(user){
+        var avatarBox = document.createElement('div')
+        avatarBox.classList.add('column', 'column-20', 'popover-team-avatar')
 
-          var avatar = document.createElement('img')
-          avatar.setAttribute('src', 'https://discordapp.com/api/users/' + user.discord_id + '/avatars/' + user.avatar + '.jpg')
-          avatar.classList.add('team-avatar')
+        var avatar = document.createElement('img')
+        avatar.setAttribute('src', 'https://discordapp.com/api/users/' + user.discord_id + '/avatars/' + user.avatar + '.jpg')
+        avatar.classList.add('team-avatar')
 
-          var playerPopover = document.createElement('span')
-          playerPopover.classList.add('popover')
-          playerPopover.innerHTML = user.username_full
+        var playerPopover = document.createElement('span')
+        playerPopover.classList.add('popover')
+        playerPopover.innerHTML = user.username_full
 
-          avatarBox.appendChild(avatar)
-          avatarBox.appendChild(playerPopover)
+        avatarBox.appendChild(avatar)
+        avatarBox.appendChild(playerPopover)
 
-          teamPlayerRow.appendChild(avatarBox)
+        teamPlayerRow.appendChild(avatarBox)
+      })
+
+      var teamSizeBox = document.createElement('div')
+      teamSizeBox.classList.add('column', 'column-20')
+
+      var teamSize = document.createElement('h5')
+      teamSize.classList.add('team-size')
+      teamSize.innerHTML = team.users.length + '/' + team.mode.size
+
+      var seriousnessLabel = document.createElement('label')
+      seriousnessLabel.setAttribute('for', 'seriousness' + team.id)
+      seriousnessLabel.innerHTML = 'Casual to Competitive'
+
+      var seriousnessInput = document.createElement('input')
+      seriousnessInput.setAttribute('type', 'range')
+      seriousnessInput.setAttribute('min', '1')
+      seriousnessInput.setAttribute('max', '5')
+      seriousnessInput.setAttribute('value', team.seriousness)
+      seriousnessInput.setAttribute('id', 'seriousness' + team.id)
+      seriousnessInput.setAttribute('step', '1')
+      seriousnessInput.setAttribute('list', 'settings' + team.id)
+      seriousnessInput.setAttribute('disabled', 'true')
+
+      var datalist = document.createElement('datalist')
+      datalist.setAttribute('id', 'settings' + team.id)
+      datalist.innerHTML = '<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>'
+
+      var infoRow = document.createElement('div')
+      infoRow.classList.add('row')
+
+      var infoBox = document.createElement('div')
+      infoBox.classList.add('column', 'column-20', 'popover-team-description')
+
+      var infoPopover = document.createElement('span')
+      infoPopover.classList.add('popover')
+      infoPopover.innerHTML = team.description
+
+      fetch('/assets/images/info.svg')
+        .then(function(response){
+          response.text().then(function(svg){
+            infoBox.innerHTML = svg
+            infoBox.appendChild(infoPopover)
+          })
         })
 
-        var teamSizeBox = document.createElement('div')
-        teamSizeBox.classList.add('column', 'column-20')
+      var gameModeBox = document.createElement('div')
+      gameModeBox.classList.add('column', 'column-40')
 
-        var teamSize = document.createElement('h5')
-        teamSize.classList.add('team-size')
-        teamSize.innerHTML = team.users.length + '/' + team.mode.size
+      var gameMode = document.createElement('h5')
+      gameMode.classList.add('game-mode')
+      gameMode.innerHTML = team.mode.name
 
-        var seriousnessLabel = document.createElement('label')
-        seriousnessLabel.setAttribute('for', 'seriousness' + team.id)
-        seriousnessLabel.innerHTML = 'Casual to Competitive'
+      var joinBox = document.createElement('div')
+      joinBox.classList.add('column', 'column-40')
 
-        var seriousnessInput = document.createElement('input')
-        seriousnessInput.setAttribute('type', 'range')
-        seriousnessInput.setAttribute('min', '1')
-        seriousnessInput.setAttribute('max', '5')
-        seriousnessInput.setAttribute('value', team.seriousness)
-        seriousnessInput.setAttribute('id', 'seriousness' + team.id)
-        seriousnessInput.setAttribute('step', '1')
-        seriousnessInput.setAttribute('list', 'settings' + team.id)
-        seriousnessInput.setAttribute('disabled', 'true')
+      var joinLink = document.createElement('a')
+      joinLink.classList.add('button', 'button-outline', 'join')
 
-        var datalist = document.createElement('datalist')
-        datalist.setAttribute('id', 'settings' + team.id)
-        datalist.innerHTML = '<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>'
+      var joinText = document.createElement('span')
 
-        var infoRow = document.createElement('div')
-        infoRow.classList.add('row')
-
-        var infoBox = document.createElement('div')
-        infoBox.classList.add('column', 'column-20', 'popover-team-description')
-
-        var infoPopover = document.createElement('span')
-        infoPopover.classList.add('popover')
-        infoPopover.innerHTML = team.description
-
-        fetch('/assets/images/info.svg')
-          .then(function(response){
-            response.text().then(function(svg){
-              infoBox.innerHTML = svg
-              infoBox.appendChild(infoPopover)
-            })
+      if(team.access === 'false') {
+        fetch('/assets/images/door-closed.svg')
+        .then(function(response){
+          response.text().then(function(svg){
+            joinLink.innerHTML = svg
+            joinLink.appendChild(joinText)
           })
-
-        var gameModeBox = document.createElement('div')
-        gameModeBox.classList.add('column', 'column-40')
-
-        var gameMode = document.createElement('h5')
-        gameMode.classList.add('game-mode')
-        gameMode.innerHTML = team.mode.name
-
-        var joinBox = document.createElement('div')
-        joinBox.classList.add('column', 'column-40')
-
-        var joinLink = document.createElement('a')
-        joinLink.classList.add('button', 'button-outline', 'join')
-
-        var joinText = document.createElement('span')
-
-        if(team.access === 'false') {
-          fetch('/assets/images/door-closed.svg')
-          .then(function(response){
-            response.text().then(function(svg){
-              joinLink.innerHTML = svg
-              joinLink.appendChild(joinText)
-            })
+        })
+        joinText.innerHTML = 'APPLY'
+      } else {
+        fetch('/assets/images/door-open.svg')
+        .then(function(response){
+          response.text().then(function(svg){
+            joinLink.innerHTML = svg
+            joinLink.appendChild(joinText)
           })
-          joinText.innerHTML = 'APPLY'
-        } else {
-          fetch('/assets/images/door-open.svg')
-          .then(function(response){
-            response.text().then(function(svg){
-              joinLink.innerHTML = svg
-              joinLink.appendChild(joinText)
-            })
-          })
-          joinText.innerHTML = 'JOIN'
-        }
-
-        teamPlayerBox.appendChild(teamPlayerRow)
-        teamSizeBox.appendChild(teamSize)
-
-        teamRow.appendChild(teamPlayerBox)
-        teamRow.appendChild(teamSizeBox)
-
-        gameModeBox.appendChild(gameMode)
-
-        joinBox.appendChild(joinLink)
-
-        infoRow.appendChild(infoBox)
-        infoRow.appendChild(gameModeBox)
-        infoRow.appendChild(joinBox)
-
-        teamTile.appendChild(teamRow)
-        teamTile.appendChild(seriousnessLabel)
-        teamTile.appendChild(seriousnessInput)
-        teamTile.appendChild(datalist)
-        teamTile.appendChild(infoRow)
-
-        boundingBox.appendChild(teamTile)
-
-        document.getElementById('teams').appendChild(boundingBox)
+        })
+        joinText.innerHTML = 'JOIN'
       }
+
+      teamPlayerBox.appendChild(teamPlayerRow)
+      teamSizeBox.appendChild(teamSize)
+
+      teamRow.appendChild(teamPlayerBox)
+      teamRow.appendChild(teamSizeBox)
+
+      gameModeBox.appendChild(gameMode)
+
+      joinBox.appendChild(joinLink)
+
+      infoRow.appendChild(infoBox)
+      infoRow.appendChild(gameModeBox)
+      infoRow.appendChild(joinBox)
+
+      teamTile.appendChild(teamRow)
+      teamTile.appendChild(seriousnessLabel)
+      teamTile.appendChild(seriousnessInput)
+      teamTile.appendChild(datalist)
+      teamTile.appendChild(infoRow)
+
+      boundingBox.appendChild(teamTile)
+
+      document.getElementById('teams').appendChild(boundingBox)
     })
 
   // Dynamically create modal form
@@ -170,7 +165,6 @@ fetch('/api/v1/games' + window.location.search)
 
     json.modes.forEach(function(mode){
       var optionMode = document.createElement('option')
-      // optionMode.setAttribute('name', 'mode_id')
       optionMode.setAttribute('value', mode.id)
       optionMode.innerHTML = mode.name
 
@@ -294,8 +288,8 @@ fetch('/api/v1/games' + window.location.search)
     modalFieldset.appendChild(labelDescription)
     modalFieldset.appendChild(inputDescription)
     modalFieldset.appendChild(labelAccess)
-    modalFieldset.appendChild(inputAccess)
     modalFieldset.appendChild(inputAccessHidden)
+    modalFieldset.appendChild(inputAccess)
     modalFieldset.appendChild(hiddenGameId)
     modalFieldset.appendChild(submitButton)
 
