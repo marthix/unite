@@ -9,6 +9,7 @@ fetch('/api/v1/games' + window.location.search)
     title.innerHTML = json.title
 
     json.teams.forEach(function(team){
+      console.log(team)
       var boundingBox = document.createElement('div')
       boundingBox.classList.add('column', 'column-33')
 
@@ -98,6 +99,7 @@ fetch('/api/v1/games' + window.location.search)
 
       var joinLink = document.createElement('a')
       joinLink.classList.add('button', 'button-outline', 'join')
+      joinLink.setAttribute('href', '/team?id=' + team.id)
 
       var joinText = document.createElement('span')
 
@@ -182,7 +184,7 @@ fetch('/api/v1/games' + window.location.search)
     input1.setAttribute('id', 'option1')
     input1.setAttribute('name', 'seriousness')
     input1.setAttribute('type', 'radio')
-    input1.setAttribute('value', '1')
+    input1.setAttribute('value', 'Casual')
     input1.classList.add('seriousness-input')
 
     var label1 = document.createElement('label')
@@ -193,7 +195,7 @@ fetch('/api/v1/games' + window.location.search)
     input2.setAttribute('id', 'option2')
     input2.setAttribute('name', 'seriousness')
     input2.setAttribute('type', 'radio')
-    input2.setAttribute('value', '2')
+    input2.setAttribute('value', 'Semi-Casual')
     input2.classList.add('seriousness-input')
 
     var label2 = document.createElement('label')
@@ -204,7 +206,7 @@ fetch('/api/v1/games' + window.location.search)
     input3.setAttribute('id', 'option3')
     input3.setAttribute('name', 'seriousness')
     input3.setAttribute('type', 'radio')
-    input3.setAttribute('value', '3')
+    input3.setAttribute('value', 'Neutral')
     input3.classList.add('seriousness-input')
     input3.checked = true
 
@@ -216,7 +218,7 @@ fetch('/api/v1/games' + window.location.search)
     input4.setAttribute('id', 'option4')
     input4.setAttribute('name', 'seriousness')
     input4.setAttribute('type', 'radio')
-    input4.setAttribute('value', '4')
+    input4.setAttribute('value', 'Semi-Hardcore')
     input4.classList.add('seriousness-input')
 
     var label4 = document.createElement('label')
@@ -227,7 +229,7 @@ fetch('/api/v1/games' + window.location.search)
     input5.setAttribute('id', 'option5')
     input5.setAttribute('name', 'seriousness')
     input5.setAttribute('type', 'radio')
-    input5.setAttribute('value', '5')
+    input5.setAttribute('value', 'Hardcore')
     input5.classList.add('seriousness-input')
 
     var label5 = document.createElement('label')
