@@ -348,6 +348,35 @@ video#bgvid {
   transition: 0.3s ease all;
 }
 
+#team-lobby {
+  height: 70vh;
+  margin-top: 50px;
+}
+
+.team-label {
+  color: $mint;
+}
+
+.team-info {
+  color: $white;
+}
+
+.party {
+  width: 100%;
+  border: 2px solid $gray;
+  border-radius: 5px;
+}
+
+.leader-icon {
+  position: relative;
+  top: -90px;
+  width: 12px;
+}
+
+.chat {
+  background-color: $gray;
+}
+
 // MODALS
 
 .create-modal {
