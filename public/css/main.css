@@ -301,22 +301,9 @@ video#bgvid {
   color: #ffffff !important;
 }
 
-.join:hover .door-icon-path {
-  fill: #ffffff;
-}
-
-.door-icon {
-  width: 100%;
-  max-width: 24px;
-  height: 100%;
-  max-height: 24px;
-  margin-top: 5px;
-  margin-right: 8px;
-}
-
-.door-icon-path {
-  fill: #63d297;
-  transition: 0.3s ease all;
+.join:focus {
+  border: 1px solid #b4c4bc !important;
+  color: #b4c4bc !important;
 }
 
 #team-lobby {

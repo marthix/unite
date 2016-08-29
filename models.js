@@ -42,7 +42,7 @@ var Team = bookshelf.Model.extend({
     return this.belongsTo(Mode)
   },
   addUser: function(user) {
-    this.users().attach(user)
+    return this.users().attach(user)
   }
 })
 
