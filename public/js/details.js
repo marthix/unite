@@ -31,7 +31,11 @@ fetch('/api/v1/games' + window.location.search)
         avatarBox.classList.add('column', 'column-20', 'popover-team-avatar')
 
         var avatar = document.createElement('img')
-        avatar.setAttribute('src', 'https://discordapp.com/api/users/' + user.discord_id + '/avatars/' + user.avatar + '.jpg')
+        if (user.avatar === null) {
+          avatar.setAttribute('src', 'https://robohash.org/' + user.username)
+        } else {
+          avatar.setAttribute('src', 'https://discordapp.com/api/users/' + user.discord_id + '/avatars/' + user.avatar + '.jpg')
+        }
         avatar.classList.add('team-avatar')
 
         var playerPopover = document.createElement('span')
