@@ -9,7 +9,7 @@ fetch('/api/v1/games')
 
       //Create the image element, and add a specific class
       var img = document.createElement('img')
-      img.setAttribute('src', './assets/images/games/' + result.cover)
+      img.setAttribute('src', './assets/images/games/covers/' + result.cover)
       img.classList.add('tile-img')
 
       //Create the title element, and add a specific class
