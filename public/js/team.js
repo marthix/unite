@@ -1,5 +1,7 @@
 var teamId = window.location.search.replace('?id=', '')
 var playerIds = []
+var creatorId
+var playerRow
 
 fetch('/api/v1/teams?id=' + teamId, {
   credentials: 'include'
@@ -11,6 +13,8 @@ fetch('/api/v1/teams?id=' + teamId, {
   //Take the JSON object, and begin creating HTML elements
   .then(function(json){
     console.log(json)
+
+    creatorId = json.creator_id
 
     var teamLobbyBox = document.createElement('div')
     teamLobbyBox.classList.add('column', 'column-75')
@@ -49,8 +53,12 @@ fetch('/api/v1/teams?id=' + teamId, {
     players.classList.add('team-label')
     players.innerHTML = 'Players:'
 
-    var playerRow = document.createElement('div')
+    playerRow = document.createElement('div')
     playerRow.classList.add('row')
+
+    json.users.forEach(function(user){
+      addPlayer(user)
+    })
 
     game.appendChild(gameInfo)
     mode.appendChild(modeInfo)
@@ -84,24 +92,30 @@ channel.bind('player_joined', function(data) {
 
 function addPlayer(player) {
   if (!playerIds.includes(player.id)){
+    playerIds.push(player.id)
+    var playerBox = document.createElement('div')
+    playerBox.classList.add('column', 'column-10')
 
+    var avatar = document.createElement('img')
+    if (player.avatar === null) {
+      avatar.setAttribute('src', 'https://robohash.org/' + player.username)
+    } else {
+      avatar.setAttribute('src', 'https://discordapp.com/api/users/' + player.discord_id + '/avatars/' + player.avatar + '.jpg')
+    }
+    avatar.classList.add('party')
+
+    playerBox.appendChild(avatar)
+
+    if (player.id === creatorId) {
+      var leader = document.createElement('img')
+      leader.setAttribute('src', './assets/images/leader.svg')
+      leader.classList.add('leader-icon')
+
+      playerBox.appendChild(leader)
+    }
+
+    playerRow.appendChild(playerBox)
+
+    return playerBox
   }
 }
-
-  // <div class="column column-75">
-  //   <div class="row">
-  //     <div class="column column-10">
-  //       <img src="./assets/images/avatar.jpg" class="party"/>
-  //     </div>
-  //     <div class="column column-10">
-  //       <img src="./assets/images/avatar.jpg" class="party leader"/>
-  //       <img src="./assets/images/leader.svg" class="leader-icon" />
-  //     </div>
-  //     <div class="column column-10">
-  //       <img src="./assets/images/avatar.jpg" class="party"/>
-  //     </div>
-  //   </div>
-  // </div>
-  // <div class="column column-25 chat">
-  //   CHAT
-  // </div>
