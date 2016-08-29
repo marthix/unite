@@ -16,6 +16,9 @@ fetch('/api/v1/teams?id=' + teamId, {
 
     creatorId = json.creator_id
 
+    var body = document.querySelector('body')
+    body.classList.add('game-background-' + json.game.id)
+
     var teamLobbyBox = document.createElement('div')
     teamLobbyBox.classList.add('column', 'column-75')
 
@@ -95,6 +98,7 @@ fetch('/api/v1/teams?id=' + teamId, {
 
     document.getElementById('team-lobby').appendChild(teamLobbyBox)
     document.getElementById('team-lobby').appendChild(chatBox)
+
   })
 
 Pusher.logToConsole = true;
