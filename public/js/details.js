@@ -106,26 +106,7 @@ fetch('/api/v1/games' + window.location.search)
       joinLink.setAttribute('href', '/team?id=' + team.id)
 
       var joinText = document.createElement('span')
-
-      if(team.access === 'false') {
-        fetch('/assets/images/door-closed.svg')
-        .then(function(response){
-          response.text().then(function(svg){
-            joinLink.innerHTML = svg
-            joinLink.appendChild(joinText)
-          })
-        })
-        joinText.innerHTML = 'APPLY'
-      } else {
-        fetch('/assets/images/door-open.svg')
-        .then(function(response){
-          response.text().then(function(svg){
-            joinLink.innerHTML = svg
-            joinLink.appendChild(joinText)
-          })
-        })
-        joinText.innerHTML = 'JOIN'
-      }
+      joinText.innerHTML = 'JOIN'
 
       teamPlayerBox.appendChild(teamPlayerRow)
       teamSizeBox.appendChild(teamSize)
@@ -135,6 +116,7 @@ fetch('/api/v1/games' + window.location.search)
 
       gameModeBox.appendChild(gameMode)
 
+      joinLink.appendChild(joinText)
       joinBox.appendChild(joinLink)
 
       infoRow.appendChild(infoBox)
@@ -259,23 +241,6 @@ fetch('/api/v1/games' + window.location.search)
     inputDescription.setAttribute('id', 'teamDescription')
     inputDescription.setAttribute('name', 'description')
 
-    var inputAccess = document.createElement('input')
-    inputAccess.setAttribute('type', 'checkbox')
-    inputAccess.setAttribute('name', 'access')
-    inputAccess.setAttribute('id', 'access-checkbox')
-    inputAccess.setAttribute('value', 'private')
-
-    var inputAccessHidden = document.createElement('input')
-    inputAccessHidden.setAttribute('type', 'hidden')
-    inputAccessHidden.setAttribute('name', 'access')
-    inputAccessHidden.setAttribute('id', 'access-checkbox-hidden')
-    inputAccessHidden.setAttribute('value', 'open')
-
-    var labelAccess = document.createElement('label')
-    labelAccess.setAttribute('for', 'access-checkbox')
-    labelAccess.setAttribute('id', 'access-checkbox-label')
-    labelAccess.innerHTML = 'This is a private team. Players must apply to join.'
-
     var submitButton = document.createElement('button')
     submitButton.setAttribute('form', 'team-form')
     submitButton.setAttribute('type', 'submit')
@@ -293,9 +258,6 @@ fetch('/api/v1/games' + window.location.search)
     modalFieldset.appendChild(radiosBox)
     modalFieldset.appendChild(labelDescription)
     modalFieldset.appendChild(inputDescription)
-    modalFieldset.appendChild(labelAccess)
-    modalFieldset.appendChild(inputAccessHidden)
-    modalFieldset.appendChild(inputAccess)
     modalFieldset.appendChild(hiddenGameId)
     modalFieldset.appendChild(submitButton)
 
