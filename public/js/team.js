@@ -22,6 +22,15 @@ fetch('/api/v1/teams?id=' + teamId, {
     var welcome = document.createElement('h3')
     welcome.innerHTML = 'Welcome to your team lobby.'
 
+    var invite = document.createElement('h6')
+    invite.classList.add('team-label')
+    invite.innerHTML = 'Lobby Invite Link: '
+
+    var inviteLink = document.createElement('span')
+    inviteLink.classList.add('team-info')
+    inviteLink.setAttribute('id', 'invite-link')
+    inviteLink.innerHTML = window.location.origin + '/t/' + json.invite
+
     var game = document.createElement('h5')
     game.classList.add('team-label')
     game.innerHTML = 'Game: '
@@ -60,6 +69,7 @@ fetch('/api/v1/teams?id=' + teamId, {
       addPlayer(user)
     })
 
+    invite.appendChild(inviteLink)
     game.appendChild(gameInfo)
     mode.appendChild(modeInfo)
     seriousness.appendChild(seriousnessInfo)
@@ -68,28 +78,20 @@ fetch('/api/v1/teams?id=' + teamId, {
     teamLobbyBox.appendChild(game)
     teamLobbyBox.appendChild(mode)
     teamLobbyBox.appendChild(seriousness)
+    teamLobbyBox.appendChild(invite)
     teamLobbyBox.appendChild(players)
     teamLobbyBox.appendChild(playerRow)
 
     var chatBox = document.createElement('div')
     chatBox.classList.add('column', 'column-25')
-    chatBox.innerHTML = '<iframe src="http://discordi.deliriousdrunkards.com/render?id=' + json.discord_server +'&title=Unite Team&theme=dark&join=true&abc=true&showall=true&toggle=true&shownick=false" width="300px" height="400px" frameborder="0"></iframe>'
-    // chatBox.innerHTML = '<iframe src="https://discordapp.com/widget?id=' + json.discord_server + '&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0"></iframe>'
-//     chatBox.innerHTML = `<script type="text/javascript" src="//cdn.jsdelivr.net/discord-widget/1.0/discord-widget.min.js"></script>
-// <script type="text/javascript">
-//     discordWidget.init({
-//         serverId: ` + json.discord_server +`,
-//         title: 'Discord Widget Title',
-//         join: false,
-//         alphabetical: false,
-//         theme: 'dark',
-//         hideChannels: ['Channel Name 1', 'Channel Name 2'],
-//         showAllUsers: true,
-//         allUsersDefaultState: true
-//     });
-//     discordWidget.render();
-// </script>
-// <div class="discord-widget"></div>`
+
+    var discordButton = document.createElement('a')
+    discordButton.classList.add('button', 'button-outline', 'join')
+    discordButton.setAttribute('href', 'http://discord.gg/' + json.discord_invite)
+    discordButton.setAttribute('target', '_blank')
+    discordButton.innerHTML = 'Open Discord Server'
+
+    chatBox.appendChild(discordButton)
 
     document.getElementById('team-lobby').appendChild(teamLobbyBox)
     document.getElementById('team-lobby').appendChild(chatBox)
@@ -106,11 +108,24 @@ channel.bind('player_joined', function(data) {
   addPlayer(data)
 })
 
+channel.bind('player_left', function(data) {
+  removePlayer(data)
+})
+
+function removePlayer(player) {
+  playerIds = playerIds.filter(function(playerId){
+    return playerId != player.id
+  })
+
+  document.getElementById('player' + player.id).remove()
+}
+
 function addPlayer(player) {
   if (!playerIds.includes(player.id)){
     playerIds.push(player.id)
     var playerBox = document.createElement('div')
     playerBox.classList.add('column', 'column-10')
+    playerBox.setAttribute('id', 'player' + player.id)
 
     var avatar = document.createElement('img')
     if (player.avatar === null) {
