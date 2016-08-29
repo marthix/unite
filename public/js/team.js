@@ -72,8 +72,24 @@ fetch('/api/v1/teams?id=' + teamId, {
     teamLobbyBox.appendChild(playerRow)
 
     var chatBox = document.createElement('div')
-    chatBox.classList.add('column', 'column-25', 'chat')
-    chatBox.innerHTML = 'CHAT PLACEHOLDER'
+    chatBox.classList.add('column', 'column-25')
+    chatBox.innerHTML = '<iframe src="http://discordi.deliriousdrunkards.com/render?id=' + json.discord_server +'&title=Unite Team&theme=dark&join=true&abc=true&showall=true&toggle=true&shownick=false" width="300px" height="400px" frameborder="0"></iframe>'
+    // chatBox.innerHTML = '<iframe src="https://discordapp.com/widget?id=' + json.discord_server + '&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0"></iframe>'
+//     chatBox.innerHTML = `<script type="text/javascript" src="//cdn.jsdelivr.net/discord-widget/1.0/discord-widget.min.js"></script>
+// <script type="text/javascript">
+//     discordWidget.init({
+//         serverId: ` + json.discord_server +`,
+//         title: 'Discord Widget Title',
+//         join: false,
+//         alphabetical: false,
+//         theme: 'dark',
+//         hideChannels: ['Channel Name 1', 'Channel Name 2'],
+//         showAllUsers: true,
+//         allUsersDefaultState: true
+//     });
+//     discordWidget.render();
+// </script>
+// <div class="discord-widget"></div>`
 
     document.getElementById('team-lobby').appendChild(teamLobbyBox)
     document.getElementById('team-lobby').appendChild(chatBox)
