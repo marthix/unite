@@ -12,7 +12,7 @@ fetch('/api/v1/teams?id=' + teamId, {
 
   //Take the JSON object, and begin creating HTML elements
   .then(function(json){
-    console.log(json)
+    // console.log(json)
 
     creatorId = json.creator_id
 
@@ -87,6 +87,7 @@ fetch('/api/v1/teams?id=' + teamId, {
 
     var chatBox = document.createElement('div')
     chatBox.classList.add('column', 'column-25')
+    chatBox.setAttribute('id', 'chat-box')
 
     var discordButton = document.createElement('a')
     discordButton.classList.add('button', 'button-outline', 'join')
