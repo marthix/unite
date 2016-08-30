@@ -2,6 +2,10 @@ var teamId = window.location.search.replace('?id=', '')
 var playerIds = []
 var creatorId
 var playerRow
+var teamLobbyBox = document.createElement('div')
+teamLobbyBox.classList.add('column', 'column-75')
+
+document.getElementById('team-lobby').appendChild(teamLobbyBox)
 
 fetch('/api/v1/teams?id=' + teamId, {
   credentials: 'include'
@@ -12,15 +16,12 @@ fetch('/api/v1/teams?id=' + teamId, {
 
   //Take the JSON object, and begin creating HTML elements
   .then(function(json){
-    // console.log(json)
 
     creatorId = json.creator_id
 
     var body = document.querySelector('body')
     body.classList.add('game-background-' + json.game.id)
 
-    var teamLobbyBox = document.createElement('div')
-    teamLobbyBox.classList.add('column', 'column-75')
 
     var welcome = document.createElement('h3')
     welcome.innerHTML = 'Welcome to your team lobby.'
@@ -32,7 +33,7 @@ fetch('/api/v1/teams?id=' + teamId, {
     var inviteLink = document.createElement('span')
     inviteLink.classList.add('team-info')
     inviteLink.setAttribute('id', 'invite-link')
-    inviteLink.innerHTML = window.location.origin + '/t/' + json.invite
+    inviteLink.innerHTML = 'unitegamers.us' + '/i/' + json.invite
 
     var game = document.createElement('h5')
     game.classList.add('team-label')
@@ -68,6 +69,12 @@ fetch('/api/v1/teams?id=' + teamId, {
     playerRow = document.createElement('div')
     playerRow.classList.add('row')
 
+    var discordButton = document.createElement('a')
+    discordButton.classList.add('button', 'button-outline', 'join', 'float-right')
+    discordButton.setAttribute('href', 'http://discord.gg/' + json.discord_invite)
+    discordButton.setAttribute('target', '_blank')
+    discordButton.innerHTML = 'Open Discord Server'
+
     json.users.forEach(function(user){
       addPlayer(user)
     })
@@ -77,6 +84,7 @@ fetch('/api/v1/teams?id=' + teamId, {
     mode.appendChild(modeInfo)
     seriousness.appendChild(seriousnessInfo)
 
+    teamLobbyBox.appendChild(discordButton)
     teamLobbyBox.appendChild(welcome)
     teamLobbyBox.appendChild(game)
     teamLobbyBox.appendChild(mode)
@@ -84,22 +92,6 @@ fetch('/api/v1/teams?id=' + teamId, {
     teamLobbyBox.appendChild(invite)
     teamLobbyBox.appendChild(players)
     teamLobbyBox.appendChild(playerRow)
-
-    var chatBox = document.createElement('div')
-    chatBox.classList.add('column', 'column-25')
-    chatBox.setAttribute('id', 'chat-box')
-
-    var discordButton = document.createElement('a')
-    discordButton.classList.add('button', 'button-outline', 'join')
-    discordButton.setAttribute('href', 'http://discord.gg/' + json.discord_invite)
-    discordButton.setAttribute('target', '_blank')
-    discordButton.innerHTML = 'Open Discord Server'
-
-    chatBox.appendChild(discordButton)
-
-    document.getElementById('team-lobby').appendChild(teamLobbyBox)
-    document.getElementById('team-lobby').appendChild(chatBox)
-
   })
 
 Pusher.logToConsole = true;

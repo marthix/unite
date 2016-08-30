@@ -8,13 +8,10 @@ fetch('/api/v1/games' + window.location.search)
     var title = document.getElementById('game-title')
     title.innerHTML = json.title
 
-    console.log(json)
-
     var body = document.querySelector('body')
     body.classList.add('game-background-' + json.id)
 
     json.teams.forEach(function(team){
-      console.log(team)
       var boundingBox = document.createElement('div')
       boundingBox.classList.add('column', 'column-33')
 

@@ -410,19 +410,21 @@ video#bgvid {
 
 .chat {
   background-color: $black;
-  border: 2px solid $gray;
+  border: 1px solid $gray;
   border-bottom: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   width: 100%;
-  height: 340px;
+  height: 380px;
   padding: 10px;
+  overflow: scroll;
+  overflow-wrap: break-word;
 }
 
 .chat-input-box {
-  background-color: $black;
-  border: 2px solid $gray;
-  border-top: none;
+  background-color: $darkGray;
+  border: 1px solid $gray;
+  // border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   width: 100%;
@@ -431,12 +433,42 @@ video#bgvid {
 }
 
 .chat-input {
+  width: 173px;
   height: 77px;
+  color: $black;
+  background-color: $white;
+  border: 1px solid $gray;
+  resize: none;
+  border-radius: 0;
 }
 
 .chat-button {
   width: 58px;
   padding: 0 0;
+  height: 77px;
+  border-radius: 0;
+  vertical-align: top;
+}
+
+.chat-list {
+  margin-bottom: 0;
+}
+
+.chat-item {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.chat-name {
+  color: $mint;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0;
+}
+
+.chat-message {
+  margin: 0;
+  font-size: 11px;
 }
 
 // MODALS
