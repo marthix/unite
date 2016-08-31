@@ -76,7 +76,13 @@ fetch('/api/v1/games' + window.location.search)
         // datalist.setAttribute('id', 'settings' + team.id)
         // datalist.innerHTML = '<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>'
 
-        var seriousnessLabel
+        var seriousnessLabel = document.createElement('h5')
+        seriousnessLabel.classList.add('team-label')
+        seriousnessLabel.innerHTML = 'We are: '
+
+        var seriousnessInput = document.createElement('span')
+        seriousnessInput.classList.add('team-info')
+        seriousnessInput.innerHTML = team.seriousness
 
         var infoRow = document.createElement('div')
         infoRow.classList.add('row')
@@ -133,10 +139,10 @@ fetch('/api/v1/games' + window.location.search)
         infoRow.appendChild(gameModeBox)
         infoRow.appendChild(joinBox)
 
+        seriousnessLabel.appendChild(seriousnessInput)
+
         teamTile.appendChild(teamRow)
-        // teamTile.appendChild(seriousnessLabel)
-        // teamTile.appendChild(seriousnessInput)
-        // teamTile.appendChild(datalist)
+        teamTile.appendChild(seriousnessLabel)
         teamTile.appendChild(infoRow)
 
         boundingBox.appendChild(teamTile)
