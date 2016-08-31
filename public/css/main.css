@@ -19,8 +19,7 @@ a {
 .header {
   background-color: #ffffff;
   color: #2c2f33;
-  height: 13vh;
-  min-height: 88px;
+  height: 100px;
 }
 
 .logo {
@@ -456,6 +455,12 @@ video#bgvid {
   margin-right: 10px;
 }
 
+.no-desc {
+  font-style: italic;
+  font-weight: lighter;
+  color: #b4c4bc !important;
+}
+
 .popover-team-avatar {
   position: relative;
 }
@@ -598,8 +603,8 @@ video#bgvid {
     display: none;
   }
   .video-overlay {
-    height: 87vh;
-    top: 93px;
+    height: 100%;
+    top: 100px;
   }
 }
 
