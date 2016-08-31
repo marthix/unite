@@ -18,8 +18,15 @@ fetch('/api/v1/games')
       title.classList.add('tile-title')
 
       //Create the title element, and add a specific class
+      var teamsPlaying = 0
+      result.teams.forEach(function(team){
+        if (team.users.length > 0) {
+          teamsPlaying++
+        }
+      })
+
       var teams = document.createElement('p')
-      teams.innerHTML = 'Teams Playing: ' + result.teams.length
+      teams.innerHTML = 'Teams Playing: ' + teamsPlaying
       teams.classList.add('tile-teams')
 
       //Create the div to house all the elements

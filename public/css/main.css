@@ -295,7 +295,9 @@ video#bgvid {
 
 .game-mode {
   font-weight: bold;
-  font-size: 2rem;
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-size: 1.5rem;
 }
 
 .join {
@@ -421,7 +423,14 @@ video#bgvid {
 
 .chat-message {
   margin: 0;
-  font-size: 11px;
+  font-size: 12px;
+}
+
+.player-action {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: lighter;
+  color: #b4c4bc;
 }
 
 .create-modal {
