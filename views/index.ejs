@@ -35,12 +35,13 @@
           </div>
           <div class="column nav">
             <div class="nav">
-              <a class="" href="/directory">DIRECTORY</a>
+              <a class="nav-link" href="/directory">DIRECTORY</a>
             </div>
             <span class="">|</span>
             <div class="profile">
               <h6 class="username"><%= user.username_full %></h6>
               <img class="avatar" src="https://discordapp.com/api/users/<%= user.discord_id %>/avatars/<%= user.avatar %>.jpg" height="30px"/>
+              <a href="/logout" title="Log Out"><img class="logout" src="assets/images/logout.svg" height="25px"/></a>
             </div>
           </div>
         </section>

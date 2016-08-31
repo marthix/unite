@@ -26,7 +26,7 @@ fetch('/api/v1/teams?id=' + teamId, {
     var welcome = document.createElement('h3')
     welcome.innerHTML = 'Welcome to your team lobby.'
 
-    var invite = document.createElement('h6')
+    var invite = document.createElement('h5')
     invite.classList.add('team-label')
     invite.innerHTML = 'Lobby Invite Link: '
 
@@ -62,7 +62,7 @@ fetch('/api/v1/teams?id=' + teamId, {
     seriousnessInfo.setAttribute('id', 'seriousness-info')
     seriousnessInfo.innerHTML = json.seriousness
 
-    var players = document.createElement('h6')
+    var players = document.createElement('h5')
     players.classList.add('team-label')
     players.innerHTML = 'Players:'
 

@@ -43,7 +43,7 @@ a {
   text-align: right;
 }
 
-.nav a {
+.nav .nav-link {
   display: inline-block;
   padding: 10px;
   margin: 20px;
@@ -52,7 +52,7 @@ a {
   transition: 0.3s ease all;
 }
 
-.nav a:hover, .nav a:active, .nav a:focus {
+.nav .nav-link:hover, .nav .nav-link:active, .nav .nav-link:focus {
   color: #2c2f33;
   border-bottom: 3px solid #63d297;
 }
@@ -80,6 +80,12 @@ a {
   border: 2px solid #b4c4bc;
   margin-left: 5px;
   margin-bottom: -7px;
+}
+
+.logout {
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: -5px;
 }
 
 .login {
