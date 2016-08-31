@@ -58,23 +58,25 @@ fetch('/api/v1/games' + window.location.search)
         teamSize.classList.add('team-size')
         teamSize.innerHTML = team.users.length + '/' + team.mode.size
 
-        var seriousnessLabel = document.createElement('label')
-        seriousnessLabel.setAttribute('for', 'seriousness' + team.id)
-        seriousnessLabel.innerHTML = 'Casual to Competitive'
+        // var seriousnessLabel = document.createElement('label')
+        // seriousnessLabel.setAttribute('for', 'seriousness' + team.id)
+        // seriousnessLabel.innerHTML = 'Casual to Competitive'
+        //
+        // var seriousnessInput = document.createElement('input')
+        // seriousnessInput.setAttribute('type', 'range')
+        // seriousnessInput.setAttribute('min', '1')
+        // seriousnessInput.setAttribute('max', '5')
+        // seriousnessInput.setAttribute('value', team.seriousness)
+        // seriousnessInput.setAttribute('id', 'seriousness' + team.id)
+        // seriousnessInput.setAttribute('step', '1')
+        // seriousnessInput.setAttribute('list', 'settings' + team.id)
+        // seriousnessInput.setAttribute('disabled', 'true')
+        //
+        // var datalist = document.createElement('datalist')
+        // datalist.setAttribute('id', 'settings' + team.id)
+        // datalist.innerHTML = '<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>'
 
-        var seriousnessInput = document.createElement('input')
-        seriousnessInput.setAttribute('type', 'range')
-        seriousnessInput.setAttribute('min', '1')
-        seriousnessInput.setAttribute('max', '5')
-        seriousnessInput.setAttribute('value', team.seriousness)
-        seriousnessInput.setAttribute('id', 'seriousness' + team.id)
-        seriousnessInput.setAttribute('step', '1')
-        seriousnessInput.setAttribute('list', 'settings' + team.id)
-        seriousnessInput.setAttribute('disabled', 'true')
-
-        var datalist = document.createElement('datalist')
-        datalist.setAttribute('id', 'settings' + team.id)
-        datalist.innerHTML = '<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>'
+        var seriousnessLabel
 
         var infoRow = document.createElement('div')
         infoRow.classList.add('row')
@@ -84,8 +86,12 @@ fetch('/api/v1/games' + window.location.search)
 
         var infoPopover = document.createElement('span')
         infoPopover.classList.add('popover')
+        if (team.description === '') {
+          infoPopover.classList.add('no-desc')
+          team.description = 'No description provided.'
+        }
         infoPopover.innerHTML = team.description
-        console.log(team.description.length)
+
 
         fetch('/assets/images/info.svg')
           .then(function(response){
@@ -103,10 +109,10 @@ fetch('/api/v1/games' + window.location.search)
         gameMode.innerHTML = team.mode.name
 
         var joinBox = document.createElement('div')
-        joinBox.classList.add('column', 'column-40')
+        joinBox.classList.add('column')
 
         var joinLink = document.createElement('a')
-        joinLink.classList.add('button', 'button-outline', 'join')
+        joinLink.classList.add('button', 'button-outline', 'join', 'float-right')
         joinLink.setAttribute('href', '/team?id=' + team.id)
 
         var joinText = document.createElement('span')
@@ -128,9 +134,9 @@ fetch('/api/v1/games' + window.location.search)
         infoRow.appendChild(joinBox)
 
         teamTile.appendChild(teamRow)
-        teamTile.appendChild(seriousnessLabel)
-        teamTile.appendChild(seriousnessInput)
-        teamTile.appendChild(datalist)
+        // teamTile.appendChild(seriousnessLabel)
+        // teamTile.appendChild(seriousnessInput)
+        // teamTile.appendChild(datalist)
         teamTile.appendChild(infoRow)
 
         boundingBox.appendChild(teamTile)
