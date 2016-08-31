@@ -16,12 +16,16 @@ fetch('/api/v1/teams?id=' + teamId, {
 
   //Take the JSON object, and begin creating HTML elements
   .then(function(json){
-
+    console.log(json)
     creatorId = json.creator_id
 
     var body = document.querySelector('body')
-    body.classList.add('game-background-' + json.game.id)
+    body.classList.add('game-background-' + json.game_id)
 
+    var back = document.createElement('a')
+    back.classList.add('join', 'button', 'button-outline')
+    back.setAttribute('href', '/directory?id=' + json.game_id)
+    back.innerHTML = '< BACK'
 
     var welcome = document.createElement('h3')
     welcome.innerHTML = 'Welcome to your team lobby.'
@@ -85,6 +89,7 @@ fetch('/api/v1/teams?id=' + teamId, {
     seriousness.appendChild(seriousnessInfo)
 
     teamLobbyBox.appendChild(discordButton)
+    teamLobbyBox.appendChild(back)
     teamLobbyBox.appendChild(welcome)
     teamLobbyBox.appendChild(game)
     teamLobbyBox.appendChild(mode)
@@ -103,10 +108,12 @@ var pusher = new Pusher('3aa26893ee89f046e2a3', {
 var channel = pusher.subscribe('team_' + teamId)
 channel.bind('player_joined', function(data) {
   addPlayer(data)
+  playerAction(data, 'joined')
 })
 
 channel.bind('player_left', function(data) {
   removePlayer(data)
+  playerAction(data, 'left')
 })
 
 function removePlayer(player) {
@@ -146,4 +153,14 @@ function addPlayer(player) {
 
     return playerBox
   }
+}
+
+function playerAction (player, action) {
+  var chatList = document.getElementById('chat-list')
+
+  var chatItem = document.createElement('li')
+  chatItem.classList.add('chat-item', 'player-action')
+  chatItem.innerHTML = player.username + " has " + action + " the party."
+
+  chatList.appendChild(chatItem)
 }
