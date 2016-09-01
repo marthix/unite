@@ -426,7 +426,6 @@ video#bgvid {
   padding: 10px;
   overflow: scroll;
   overflow-wrap: break-word;
-
 }
 
 ::-webkit-scrollbar {
@@ -579,6 +578,7 @@ video#bgvid {
     position: absolute;
     width: 240px;
     z-index: 4;
+    overflow-wrap: break-word;
 
     &:before {
       border-top: 7px solid transparentize($mint, 0.15);;

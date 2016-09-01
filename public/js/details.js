@@ -239,6 +239,8 @@ fetch('/api/v1/games' + window.location.search)
     var inputDescription = document.createElement('textarea')
     inputDescription.setAttribute('id', 'teamDescription')
     inputDescription.setAttribute('name', 'description')
+    inputDescription.setAttribute('maxlength', '600')
+
 
     var submitButton = document.createElement('button')
     submitButton.setAttribute('form', 'team-form')

@@ -522,6 +522,7 @@ video#bgvid {
   position: absolute;
   width: 240px;
   z-index: 4;
+  overflow-wrap: break-word;
 }
 
 .popover-team-description .popover:before {
