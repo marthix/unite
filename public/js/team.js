@@ -16,7 +16,6 @@ fetch('/api/v1/teams?id=' + teamId, {
 
   //Take the JSON object, and begin creating HTML elements
   .then(function(json){
-    console.log(json)
     creatorId = json.creator_id
 
     var body = document.querySelector('body')

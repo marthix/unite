@@ -1,6 +1,6 @@
 // Pusher to send chats
 channel.bind('message', function(data) {
-  sendChat(data)
+  renderChat(data)
 })
 
 //Setup the structure for chatting
@@ -57,6 +57,7 @@ document.body.addEventListener('click', function(e) {
 
 // Utility functions
 function fetchAPI (message) {
+  clearChat()
   fetch('/api/v1/chat', {
     credentials: 'include',
     method: 'POST',
@@ -73,7 +74,7 @@ function fetchAPI (message) {
   })
 }
 
-function sendChat (data) {
+function renderChat (data) {
   var chatList = document.getElementById('chat-list')
 
   var chatItem = document.createElement('li')
@@ -107,7 +108,6 @@ function sendChat (data) {
 
   chatList.appendChild(chatItem)
   scrollChat()
-  clearChat()
 }
 
 function clearChat () {
