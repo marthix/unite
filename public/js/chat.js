@@ -85,7 +85,11 @@ function renderChat (data) {
 
   var avatar = document.createElement('img')
   avatar.classList.add('avatar')
-  avatar.setAttribute('src', 'https://discordapp.com/api/users/' + data.discord_id + '/avatars/' + data.avatar + '.jpg')
+  if (data.avatar === null) {
+    avatar.setAttribute('src', 'https://robohash.org/' + data.username)
+  } else {
+    avatar.setAttribute('src', 'https://discordapp.com/api/users/' + data.discord_id + '/avatars/' + data.avatar + '.jpg')
+  }
   avatar.setAttribute('width', '100%')
 
   var messageContainer = document.createElement('div')
