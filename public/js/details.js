@@ -58,24 +58,6 @@ fetch('/api/v1/games' + window.location.search)
         teamSize.classList.add('team-size')
         teamSize.innerHTML = team.users.length + '/' + team.mode.size
 
-        // var seriousnessLabel = document.createElement('label')
-        // seriousnessLabel.setAttribute('for', 'seriousness' + team.id)
-        // seriousnessLabel.innerHTML = 'Casual to Competitive'
-        //
-        // var seriousnessInput = document.createElement('input')
-        // seriousnessInput.setAttribute('type', 'range')
-        // seriousnessInput.setAttribute('min', '1')
-        // seriousnessInput.setAttribute('max', '5')
-        // seriousnessInput.setAttribute('value', team.seriousness)
-        // seriousnessInput.setAttribute('id', 'seriousness' + team.id)
-        // seriousnessInput.setAttribute('step', '1')
-        // seriousnessInput.setAttribute('list', 'settings' + team.id)
-        // seriousnessInput.setAttribute('disabled', 'true')
-        //
-        // var datalist = document.createElement('datalist')
-        // datalist.setAttribute('id', 'settings' + team.id)
-        // datalist.innerHTML = '<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>'
-
         var seriousnessLabel = document.createElement('h5')
         seriousnessLabel.classList.add('team-label')
         seriousnessLabel.innerHTML = 'We are: '
