@@ -14,6 +14,10 @@ chatBox.classList.add('chat')
 var chatList = document.createElement('ul')
 chatList.setAttribute('id', 'chat-list')
 
+var chatItem = document.createElement('li')
+chatItem.classList.add('chat-item', 'player-action')
+chatItem.innerHTML = 'Welcome to your team\'s chat lobby!'
+
 var chatInputBox = document.createElement('div')
 chatInputBox.classList.add('chat-input-box')
 
@@ -25,6 +29,7 @@ var chatButton = document.createElement('button')
 chatButton.classList.add('button', 'chat-button')
 chatButton.innerHTML = 'SEND'
 
+chatList.appendChild(chatItem)
 chatBox.appendChild(chatList)
 
 chatInputBox.appendChild(chatInput)
