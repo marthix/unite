@@ -16,7 +16,11 @@
             <span class="">|</span>
             <div class="profile">
               <h6 class="username"><%= user.username_full %></h6>
-              <img class="avatar" src="https://discordapp.com/api/users/<%= user.discord_id %>/avatars/<%= user.avatar %>.jpg" height="30px"/>
+              <% if (!user.avatar) {%>
+                <img class="avatar" src="https://robohash.org/<%= user.username %>" height="30px"/>
+              <% } else { %>
+                <img class="avatar" src="https://discordapp.com/api/users/<%= user.discord_id %>/avatars/<%= user.avatar %>.jpg" height="30px"/>
+              <% } %>
               <a href="/logout" title="Log Out"><img class="logout" src="assets/images/logout.svg" height="25px"/></a>
             </div>
           </div>
