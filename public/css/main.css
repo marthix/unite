@@ -376,6 +376,10 @@ video#bgvid {
   overflow-wrap: break-word;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 .chat-input-box {
   background-color: #2c2f33;
   border: 1px solid #b4c4bc;
