@@ -4,6 +4,7 @@ var bodyParser = require('body-parser')
 var session = require('express-session')
 var ejs = require('ejs')
 var app = express()
+var cors = require('cors');
 var knex = require('knex')({
   client: 'pg',
   connection: (process.env.DATABASE_URL || 'postgres://localhost/jason'),
@@ -35,11 +36,22 @@ var discord = new Discord.Client(config.discord)
 bookshelf.plugin('registry')
 
 // Middleware
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+var allowedOrigins = ['http://localhost:3000',
+                      'http://localhost:5000',
+                      'http://www.unitegamers.us'];
+app.use(cors({
+  origin: function(origin, callback){
+    // allow requests with no origin
+    // (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
+
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true }))
 app.use(flash())
 app.use(passport.initialize())

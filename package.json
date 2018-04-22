@@ -28,6 +28,7 @@
     "bootstrap-slider": "^9.10.0",
     "clipboard": "^1.7.1",
     "connect-flash": "^0.1.1",
+    "cors": "^2.8.4",
     "discord.io": "github:Woor/discord.io#gateway_v6",
     "ejs": "^2.5.9",
     "express": "^4.16.3",

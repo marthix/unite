@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import uniteLogo from "../logos/unite-logo-black.png";
+import discordLogo from "../logos/discord.svg";
 
 export default class Navigation extends React.Component {
 
@@ -31,7 +33,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <nav className="header">
-        <Link to="/"><img className="logo-unite" src="assets/logos/unite-logo-black.png" height="40px"/></Link>
+        <Link to="/"><img className="logo-unite" src={uniteLogo} height="40px"/></Link>
 
         {(() => {
 
@@ -40,7 +42,7 @@ export default class Navigation extends React.Component {
           } else {
             return (
               <button className="button button-login" onClick={this.handleLogin}>
-                <img className="logo-discord" src="assets/logos/discord.svg"/>
+                <img className="logo-discord" src={discordLogo}/>
                 log in with discord
               </button>
             );
