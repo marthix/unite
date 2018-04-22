@@ -35,7 +35,12 @@ var discord = new Discord.Client(config.discord)
 bookshelf.plugin('registry')
 
 // Middleware
-app.use(session({ secret: 'keyboard cat' }))
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true }))
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
