@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+
+  background-color: #ffffff;
+  color: #2c2f33;
+}
+
+.logo-unite {
+  padding: 20px;
+}
+
+.logo-discord {
+  margin-right: 8px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  border: 1px solid #63d297;
+  border-radius: 0.3rem;
+  white-space: nowrap;
+
+  background-color: transparent;
+  color: #63d297;
+
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: .3s ease all;
+
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #2c2f33;
+  border-color: #2c2f33;
+}
+
+.button-login {
+  padding: 0 0.5rem;
+}
