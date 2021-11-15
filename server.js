@@ -7,8 +7,11 @@ var app = express()
 var cors = require('cors');
 var knex = require('knex')({
   client: 'pg',
-  connection: (process.env.DATABASE_URL || 'postgres://localhost/jason'),
-  searchPath: 'knex,public'
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+  },
+  searchPath: ['knex', 'public']
 })
 var bookshelf = require('bookshelf')(knex)
 var models = require('./models')
