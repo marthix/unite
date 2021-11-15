@@ -36,7 +36,7 @@ fetch('/api/v1/teams?id=' + teamId, {
     var inviteLink = document.createElement('span')
     inviteLink.classList.add('team-info')
     inviteLink.setAttribute('id', 'invite-link')
-    inviteLink.innerHTML = 'unitegamers.us' + '/i/' + json.invite
+    inviteLink.innerHTML = 'unite-gamers.herokuapp.com' + '/i/' + json.invite
 
     var game = document.createElement('h5')
     game.classList.add('team-label')

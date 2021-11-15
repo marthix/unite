@@ -41,7 +41,7 @@ bookshelf.plugin('registry')
 // Middleware
 var allowedOrigins = ['http://localhost:3000',
                       'http://localhost:5000',
-                      'http://www.unitegamers.us'];
+                      'https://unite-gamers.herokuapp.com/'];
 app.use(cors({
   origin: function(origin, callback){
     // allow requests with no origin
